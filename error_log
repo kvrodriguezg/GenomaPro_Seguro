@@ -1,0 +1,315 @@
+[01-Feb-2024 00:43:45 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'diomarmr_diandrapalacios'@'localhost' to database 'bdddiandraPalacios' in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/conexion.php:13
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/conexion.php(13): mysqli_select_db()
+#1 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php(11): Conectarse()
+#2 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php(6): ExisteTabla->__construct()
+#3 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(38): require_once('/home/diomarmr/...')
+#4 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/conexion.php on line 13
+[01-Feb-2024 00:44:26 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: Access denied for user 'diomarmr_diandrapalacios'@'localhost' to database 'bdddiandraPalacios' in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/conexion.php:13
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/conexion.php(13): mysqli_select_db()
+#1 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php(11): Conectarse()
+#2 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php(6): ExisteTabla->__construct()
+#3 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(4): require_once('/home/diomarmr/...')
+#4 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/conexion.php on line 13
+[01-Feb-2024 00:46:15 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(4): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:46:18 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(4): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:46:30 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(4): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:47:02 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(4): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:47:11 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:47:13 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:47:14 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:47:14 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:47:31 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:48:07 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:48:08 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:48:45 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:49:07 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:49:08 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:49:09 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:49:09 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:49:09 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:6
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 6
+[01-Feb-2024 00:53:03 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:53:05 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:53:06 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:54:03 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 41
+[01-Feb-2024 00:54:20 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:54:40 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:55:08 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:55:50 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 00:55:57 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:20:06 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:22:09 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:22:44 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:29:53 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:40:52 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:41:52 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:41:59 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:42:10 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:42:37 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:42:49 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:44:27 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:44:36 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:44:36 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:44:39 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:44:44 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:8
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 8
+[01-Feb-2024 01:45:06 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:7
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 7
+[01-Feb-2024 01:45:14 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:7
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 7
+[01-Feb-2024 01:45:35 UTC] PHP Fatal error:  Uncaught Error: Class "ExisteTabla" not found in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:7
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(6): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 7
+[01-Feb-2024 01:46:01 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:46:13 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:46:22 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 40
+[01-Feb-2024 01:46:44 UTC] PHP Warning:  Undefined variable $validacionExistencia in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php on line 41
+[01-Feb-2024 04:20:39 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:19
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 19
+[01-Feb-2024 04:20:44 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:19
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 19
+[01-Feb-2024 04:20:50 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:19
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 19
+[01-Feb-2024 04:21:24 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:31
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 31
+[01-Feb-2024 04:21:45 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:19
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 19
+[01-Feb-2024 04:22:36 UTC] PHP Fatal error:  Uncaught Error: Undefined constant " 1" in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:3
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 3
+[01-Feb-2024 04:22:40 UTC] PHP Fatal error:  Uncaught Error: Undefined constant " 1" in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:3
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(5): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 3
+[01-Feb-2024 04:23:33 UTC] PHP Fatal error:  Uncaught Error: Undefined constant " 1" in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:3
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 3
+[01-Feb-2024 04:23:36 UTC] PHP Fatal error:  Uncaught Error: Undefined constant " 1" in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:3
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 3
+[01-Feb-2024 04:23:40 UTC] PHP Fatal error:  Uncaught Error: Undefined constant " 1" in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:3
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 3
+[01-Feb-2024 04:23:43 UTC] PHP Fatal error:  Uncaught Error: Undefined constant " 1" in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:3
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 3
+[01-Feb-2024 04:28:54 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:23
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 23
+[01-Feb-2024 04:32:48 UTC] PHP Fatal error:  Uncaught Error: mysqli_stmt_bind_param(): Argument #8 could not be passed by reference in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php:167
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php(24): ExisteTabla->crearUsuarioAdmin()
+#1 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once('/home/diomarmr/...')
+#2 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php on line 167
+[01-Feb-2024 04:35:45 UTC] PHP Fatal error:  Uncaught Error: mysqli_stmt_bind_param(): Argument #8 could not be passed by reference in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php:186
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php(24): ExisteTabla->crearUsuarioAdmin()
+#1 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once('/home/diomarmr/...')
+#2 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php on line 186
+[01-Feb-2024 04:37:48 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:32
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 32
+[01-Feb-2024 04:37:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:32
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 32
+[01-Feb-2024 04:39:19 UTC] PHP Fatal error:  Uncaught Error: Call to undefined method ExisteTabla::comprobarAdmin() in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php:23
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once()
+#1 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php on line 23
+[01-Feb-2024 04:41:08 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php:186
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php(24): ExisteTabla->crearUsuarioAdmin()
+#1 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once('/home/diomarmr/...')
+#2 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php on line 186
+[01-Feb-2024 04:42:24 UTC] PHP Fatal error:  Uncaught TypeError: Cannot access offset of type string on string in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php:186
+Stack trace:
+#0 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Controllers/indexController.php(24): ExisteTabla->crearUsuarioAdmin()
+#1 /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/index.php(7): require_once('/home/diomarmr/...')
+#2 {main}
+  thrown in /home/diomarmr/public_html/ipleones/dw_PalaciosDiandraTeam/Models/existetablaModel.php on line 186

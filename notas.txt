@@ -1,0 +1,102 @@
+"luyanezc_diandrapalacios", "Diandra.Palacios"
+
+
+conexion.php
+
+<?php
+
+function Conectarse()
+{
+    if (!($link = mysqli_connect("localhost", "alexisto_diandrapalacios","Diandra.Palacios"))) {
+        echo "ERROR 1";
+        exit();
+    }
+
+    $db_nombre = "alexisto_bdddiandrapalacios";
+
+    //Validamos si existe.
+    $db_existe = mysqli_select_db($link, $db_nombre);
+//
+        // Si la base de datos no existe, crearla
+        if (!$db_existe) {
+            $query = "CREATE DATABASE $db_nombre";
+            if (!mysqli_query($link, $query)) {
+                echo "Error 2";
+            }
+        } else {
+        
+            if (!mysqli_select_db($link, $db_nombre)) {
+                echo "Error 3";
+                exit();
+            }
+        }
+        return $link;
+}
+
+
+
+
+
+
+conex
+
+
+<?php
+$conexion = mysqli_connect("localhost", "alexisto_diandrapalacios", "Diandra.Palacios", "alexisto_bdddiandrapalacios");
+
+//AQUI PROBAMOS LA CONEXION A LA BASE DE DATO
+if (mysqli_connect_errno()) {
+    echo "Falla a conectarce a la base de dato: " . mysqli_connect_errno();
+} /* else {
+    echo "Conectado correctamente";
+} */
+
+
+
+$directorioActual = __DIR__;
+$ruta = dirname($directorioActual) . "/Models/conexion.php";
+require_once $ruta;
+
+$directorioActual = __DIR__;
+$rutaperfiles = dirname($directorioActual) . "/Controllers/perfilesController.php";
+
+
+$directorioActual = __DIR__;
+$rutaperfiles = dirname($directorioActual) . "/Controllers/perfilesController.php";
+require_once $rutaperfiles;
+
+$directorioActual = __DIR__;
+$rutaestado = dirname($directorioActual) . "/Controllers/EstadoController.php";
+$rutausuarios = dirname($directorioActual) . "/Controllers/usuariosController.php";
+$rutaacceso = dirname($directorioActual) . "/Controllers/accesoController.php";
+echo "estado: $rutaestado <br> usuario: $rutausuarios <br> acceso: $rutaacceso";
+$directorioActual = __DIR__;
+$rutaestado = dirname($directorioActual) . "/Controllers/EstadoController.php";
+require_once $rutaestado;
+$rutausuarios = dirname($directorioActual) . "/Controllers/usuarioscontroller.php";
+$rutaacceso = dirname($directorioActual) . "/Controllers/accesoController.php";
+require_once $rutaestado;
+require_once $rutausuarios;
+require_once $rutaacceso;
+
+$directorioActual = __DIR__;
+$ruta = dirname($directorioActual) . "/Models/conex.php";
+require_once $ruta;
+
+IDUsuario	usuario	Nombre	Correo	Rut	Clave	IDPerfil	IDCentroMedico	
+	
+IDPerfil	
+TipoPerfil	
+
+	
+IDCentroMedico	
+NombreCentro	
+codigo	
+
+$directorioActual = __DIR__;
+$rutaacceso = dirname($directorioActual) . "/Controllers/accesoController.php";
+require_once $rutaacceso;
+
+$directorioActual = __DIR__;
+$rutaexamenes = dirname($directorioActual) . "/Controllers/examenesController.php";
+require_once $rutaexamenes;
