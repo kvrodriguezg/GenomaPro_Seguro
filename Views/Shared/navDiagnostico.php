@@ -1,4 +1,4 @@
-<header class="navbar navbar-light fixed-top" style="background-color: #590202;">
+<header class="navbar navbar-light fixed-top" style="background-color: #023059;">
     <div class="nav-container">
         <a class="navbar-brand" href="../index.php">
             <img src="../img/4.png" alt="Logo">
