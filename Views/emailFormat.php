@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -52,19 +51,21 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Verificación en Dos Pasos - GnomaPro</h1>
-        </div>
-        <p>Hola,</p>
-        <p>Has solicitado un código de verificación para acceder a tu cuenta en GnomaPro. Por favor, utiliza el siguiente código para completar el proceso de verificación:</p>
-        <div class="code">' . $codigo . '</div>
-        <p>Por favor, no compartas este código con nadie. Si no has solicitado este código, ignora este correo electrónico.</p>
-        <p>Gracias,<br>El equipo de GnomePro</p>
-        <div class="footer">
-            <p>&copy; 2024 GnomaPro. Todos los derechos reservados.</p>
-        </div>
+<div class="container">
+    <div class="header">
+        <h1>Verificación en Dos Pasos - GnomaPro</h1>
     </div>
+    <p>Hola,</p>
+    <p>Has solicitado un código de verificación para acceder a tu cuenta en GnomaPro. Por favor, utiliza el siguiente
+        código para completar el proceso de verificación:</p>
+    <div class="code">' . $codigo . '</div>
+    <p>Por favor, no compartas este código con nadie. Si no has solicitado este código, ignora este correo
+        electrónico.</p>
+    <p>Gracias,<br>El equipo de GnomePro</p>
+    <div class="footer">
+        <p>&copy; 2024 GnomaPro. Todos los derechos reservados.</p>
+    </div>
+</div>
 </body>
 
 </html>

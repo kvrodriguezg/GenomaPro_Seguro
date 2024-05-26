@@ -8,9 +8,83 @@ class usuario
     private $usuario;
     private $user;
     private $userLogin;
-
+    private $IDUsuario;
+    private $Usuario;
+    private $Nombre;
+    private $Correo;
+    private $Rut;
+    private $clave;
+    private $IDPerfil;
+    private $IDCentroMedico;
 
     private $centrosarray;
+
+    // Métodos Get
+    public function getIDUsuario() {
+        return $this->IDUsuario;
+    }
+
+    public function getUsuario() {
+        return $this->Usuario;
+    }
+
+    public function getNombre() {
+        return $this->Nombre;
+    }
+
+    public function getCorreo() {
+        return $this->Correo;
+    }
+
+    public function getRut() {
+        return $this->Rut;
+    }
+
+    public function getClave() {
+        return $this->clave;
+    }
+
+    public function getIDPerfil() {
+        return $this->IDPerfil;
+    }
+
+    public function getIDCentroMedico() {
+        return $this->IDCentroMedico;
+    }
+
+    // Métodos Set
+    public function setIDUsuario($IDUsuario) {
+        $this->IDUsuario = $IDUsuario;
+    }
+
+    public function setUsuario($Usuario) {
+        $this->Usuario = $Usuario;
+    }
+
+    public function setNombre($Nombre) {
+        $this->Nombre = $Nombre;
+    }
+
+    public function setCorreo($Correo) {
+        $this->Correo = $Correo;
+    }
+
+    public function setRut($Rut) {
+        $this->Rut = $Rut;
+    }
+
+    public function setClave($clave) {
+        $this->clave = $clave;
+    }
+
+    public function setIDPerfil($IDPerfil) {
+        $this->IDPerfil = $IDPerfil;
+    }
+
+    public function setIDCentroMedico($IDCentroMedico) {
+        $this->IDCentroMedico = $IDCentroMedico;
+    }
+
 
     public function __construct()
     {
@@ -31,7 +105,7 @@ class usuario
         }
         return $this->usuario;
     }
-    
+
 
     public function buscarPerfil($nombrePerfil)
     {
@@ -79,31 +153,48 @@ class usuario
         }
         return $this->centrosarray;
     }
-    public function insertarUsuario($usuario, $nombre, $correo, $rut, $clave, $perfil, $centro)
+    public function insertarUsuario(usuario $datos)
     {
-        $idperfil = $this->buscarPerfil($perfil);
-        $idcentro = $this->buscarcentro($centro);
+
+        $usuario = $datos->getUsuario();
+        $nombre = $datos->getNombre();
+        $correo = $datos->getCorreo();
+        $rut = $datos->getRut();
+        $clave = $datos->getClave();
+        $idPerfil = $datos->getIDPerfil();
+        $idCentroMedico = $datos->getIDCentroMedico();
+        $idperfil = $this->buscarPerfil($idPerfil);
+        $idcentro = $this->buscarcentro($idCentroMedico);
         $clavehash = password_hash($clave, PASSWORD_DEFAULT);
 
-        // Verificar si ya existe un usuario con la misma llave foránea
         $existingUser = $this->buscarUsuarioPorLlaveForanea($rut);
         if ($existingUser) {
             return false;
-        } else {
-            $query = "INSERT INTO Usuarios (usuario, Nombre, Correo, Rut, Clave, IDPerfil, IDCentroMedico) VALUES (?, ?, ?, ?, ?, ?, ?);";
+        }
+        else
+        {
+            $query = "CALL u_users_savedate(?, ?, ?, ?, ?, ?, ?, @resultado);";
+            $stmt = mysqli_prepare($this->db, $query);
 
-            if ($stmt = mysqli_prepare($this->db, $query)) {
-                mysqli_stmt_bind_param($stmt, "sssssii", $usuario, $nombre, $correo, $rut, $clavehash, $idperfil['IDPerfil'], $idcentro['IDCentroMedico']);
-
+            if ($stmt) {
+                mysqli_stmt_bind_param($stmt, "iisssss", $idcentro, $idperfil, $usuario, $nombre, $correo, $rut, $clavehash);
                 if (mysqli_stmt_execute($stmt)) {
-                    return true;
+                    $resultado = mysqli_query($this->db, "SELECT @resultado AS resultado")->fetch_assoc()['resultado'];
+                    if ($resultado == 'Registro Creado') {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 } else {
                     return false;
                 }
+                mysqli_stmt_close($stmt);
+            } else {
+                return false;
             }
         }
-
     }
+
 
     public function buscarUsuarioPorLlaveForanea($rut)
     {
@@ -122,11 +213,13 @@ class usuario
         }
     }
 
-    public function eliminarUsuario($IDUsuario)
+    public function eliminarUsuario(usuario $datos)
     {
+
+        $idusuario = $datos->getIDUsuario();
         $query = "DELETE FROM Usuarios WHERE IDUsuario=?;";
         if ($stmt = mysqli_prepare($this->db, $query)) {
-            mysqli_stmt_bind_param($stmt, "i", $IDUsuario);
+            mysqli_stmt_bind_param($stmt, "i", $idusuario);
             if (mysqli_stmt_execute($stmt)) {
                 return true;
             } else {

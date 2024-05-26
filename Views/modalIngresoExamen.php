@@ -28,7 +28,7 @@ require_once $rutaexamenes;
                 <h5 class="modal-title" id="exampleModalLabel">Nuevo Examen:</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <form method="POST" action="recepcion.php">
+            <form method="POST" action="recepcion/recepcion.php">
                 <div class="modal-body">
                     <div class="row">
                         <div class="col">
@@ -37,7 +37,8 @@ require_once $rutaexamenes;
                         </div>
                         <div class="col">
                             <label for="rut">Rut</label>
-                            <input type="text" class="form-control" name="rut" id="rut" oninput="agregarGuion()" maxlength="10" required>
+                            <input type="text" class="form-control" name="rut" id="rut" oninput="agregarGuion()"
+                                   maxlength="10" required>
                         </div>
                     </div>
                     <div class="row">
@@ -74,7 +75,8 @@ require_once $rutaexamenes;
                 </div>
                 <br>
                 <div class="modal-footer">
-                    <input type="submit" name="btnregistrar" class="btn center-block" style="color:white; background-color:#023059" value="Registrar">
+                    <input type="submit" name="btnregistrar" class="btn center-block"
+                           style="color:white; background-color:#023059" value="Registrar">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 </div>
             </form>

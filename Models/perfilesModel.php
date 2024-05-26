@@ -7,6 +7,19 @@ class perfiles
     private $db;
     private $perfiles;
     private $tipoperfiles;
+    private $TipoPerfil;
+
+    public function getPerfiles()
+    {
+        return $this->perfiles;
+    }
+
+    public function setPerfiles($perfiles)
+    {
+        $this->perfiles = $perfiles;
+    }
+
+
     public function __construct()
     {
         //require_once("conexion.php");
@@ -29,12 +42,14 @@ class perfiles
         
     }
     
-    public function insertarPerfil($nombrePerfil)
+    public function insertarPerfil(perfiles $datos)
     {
+            $tipoperfil = $datos->getPerfiles();
             $query = "INSERT INTO Perfiles (TipoPerfil) VALUES (?);";
+            $query= "CALL procedure nombreprocedimiento(?)";
             
             if ($stmt = mysqli_prepare($this->db, $query)) {
-                mysqli_stmt_bind_param($stmt, "s", $nombrePerfil);
+                mysqli_stmt_bind_param($stmt, "s", $tipoperfil);
                 if (mysqli_stmt_execute($stmt)) {
                     return true;       
                 } 

@@ -4,7 +4,8 @@ $rutaestado = dirname($directorioActual) . "/Controllers/EstadoController.php";
 require_once $rutaestado;
 $IDEstado = $_POST['estadoID'];
 ?>
-<div class="modal fade" id="editar_Modal<?php echo $IDEstado ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editar_Modal<?php echo $IDEstado ?>" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -17,7 +18,8 @@ $IDEstado = $_POST['estadoID'];
                     <div class="row">
                         <div class="col">
                             <label for="AgregaNEstado" style="text-align: center;">Estado:</label>
-                            <input type="text" class="form-control" name="AgregaNEstado" value="<?php echo $AgregaNEstado; ?>"><br>
+                            <input type="text" class="form-control" name="AgregaNEstado"
+                                   value="<?php echo $AgregaNEstado; ?>"><br>
                         </div>
                     </div>
                     <div class="row">
@@ -40,7 +42,9 @@ $IDEstado = $_POST['estadoID'];
                     </div>
                     <br>
                     <div class="modal-footer">
-                        <button type="submit" name="ModificarRegistro" class="btn" style="color:white; background-color:#023059">Enviar</button>
+                        <button type="submit" name="ModificarRegistro" class="btn"
+                                style="color:white; background-color:#023059">Enviar
+                        </button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                     </div>
                 </div>

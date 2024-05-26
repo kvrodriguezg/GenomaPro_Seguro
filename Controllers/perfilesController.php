@@ -18,7 +18,8 @@ if (isset($_POST['crearPerfiles'])) {
 if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['tipoPerfil'])) {
 
     $tipoPerfil = $_POST['tipoPerfil'];
-    $insertarperfil = $objPerfil->insertarPerfil($tipoPerfil);
+	$objPerfil->setPerfiles($tipoPerfil);
+    $insertarperfil = $objPerfil->insertarPerfil($objPerfil);
     echo
     '<script>
         document.addEventListener("DOMContentLoaded", function() {
