@@ -173,3 +173,5 @@ $examenesTincion = $examen->obtenerExamenesTincion();
 $examenesDiagnostico = $examen->obtenerExamenesDiagnosticos();
 $examenesRegistro = $examen->obtenerExamenesRegistro();
 $centrosmedicos = $examen->obtenerCentrosmedicos();
+
+$prueba;
