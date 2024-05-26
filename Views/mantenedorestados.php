@@ -138,8 +138,8 @@ $sw = "";
         </div>
 
         <script>
-            $(document).ready(function() {
-                $('.btn-editar-estado').click(function() {
+            $(document).ready(function () {
+                $('.btn-editar-estado').click(function () {
                     var estadoID = $(this).data('estado');
                     $.ajax({
                         type: 'POST',
@@ -147,7 +147,7 @@ $sw = "";
                         data: {
                             estadoID: estadoID,
                         },
-                        success: function(response) {
+                        success: function (response) {
                             $('body').append(response);
                             $('#editar_Modal' + estadoID).modal('show');
                         }
@@ -156,7 +156,7 @@ $sw = "";
             });
         </script>
         <script>
-            $('.eliminarform').submit(function(e) {
+            $('.eliminarform').submit(function (e) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -175,7 +175,7 @@ $sw = "";
                             title: "No se eliminará.",
                             icon: "info",
                             confirmButtonColor: '#023059'
-                       });
+                        });
                     }
                 });
             })

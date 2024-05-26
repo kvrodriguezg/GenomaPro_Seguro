@@ -13,21 +13,21 @@ $listcentros = $objusuario->verCentrosarray();
 
 
 if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['nombre']) && isset($_POST['rut']) && isset($_POST['usuario']) && isset($_POST['clave']) && isset($_POST['correo']) && isset($_POST['perfil']) && isset($_POST['centro'])) {
-
-    $nombre = $_POST['nombre'] ?? '';
-    $rut = $_POST['rut'] ?? '';
-    $usuario = $_POST['usuario'] ?? '';
-    $clave = $_POST['clave'] ?? '';
-    $correo = $_POST['correo'] ?? '';
-    $perfil = $_POST['perfil'] ?? '';
-    $centro = $_POST['centro'] ?? '';
-    $op = $_POST['op'] ?? '';
-    $estado = $objusuario->validarut($rut);
+    $objusuario->setNombre(isset($_POST['nombre']) ? $_POST['nombre'] : '');
+    $objusuario->setRut(isset($_POST['rut']) ? $_POST['rut'] : '');
+    $objusuario->setUsuario(isset($_POST['usuario']) ? $_POST['usuario'] : '');
+    $objusuario->setClave(isset($_POST['clave']) ? $_POST['clave'] : '');
+    $objusuario->setCorreo(isset($_POST['correo']) ? $_POST['correo'] : '');
+    $objusuario->setIDPerfil(isset($_POST['perfil']) ? $_POST['perfil'] : '');
+    $objusuario->setIDCentroMedico(isset($_POST['centro']) ? $_POST['centro'] : '');
+	$verificarRut= $objusuario->getRut();
+    $op = isset($_POST['op']) ? $_POST['op'] : '';
+    $estado = $objusuario->validarut($verificarRut);
     if($estado=="BIEN"){
-        $existeUsuario = $objusuario->buscarUsuarioPorLlaveForanea($rut);
-        if ($existeUsuario != $rut)
+        $existeUsuario = $objusuario->buscarUsuarioPorLlaveForanea($verificarRut);
+        if ($existeUsuario != $verificarRut)
         {
-            $insertar = $objusuario->insertarUsuario($usuario, $nombre, $correo, $rut, $clave, $perfil, $centro);
+            $insertar = $objusuario->insertarUsuario($objusuario);
             if ($insertar)
             {
                 echo '<script>
@@ -86,7 +86,8 @@ if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['nombre']) 
 // Eliminar perfil 
 if (isset($_POST['op']) && $_POST['op'] == "eliminar" && isset($_POST['IDUsuarioEliminar'])) {
     $IDUsuario = $_POST['IDUsuarioEliminar'];
-    $borrarusuario = $objusuario->eliminarUsuario($IDUsuario);
+	$objusuario->setIDUsuario($IDUsuario);
+    $borrarusuario = $objusuario->eliminarUsuario($objusuario);
 
     $alertaExito = $borrarusuario ? 'true' : 'false';
 
