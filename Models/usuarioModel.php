@@ -16,7 +16,7 @@ class usuario
     private $clave;
     private $IDPerfil;
     private $IDCentroMedico;
-
+    private $probando;
     private $centrosarray;
 
     // Métodos Get
