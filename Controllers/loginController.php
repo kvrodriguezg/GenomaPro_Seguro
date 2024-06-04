@@ -28,8 +28,8 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
     if ($captcha_response->success) {
         $loginResult = $objlogin->iniciarSesion($usuario, $clave);
 
+        session_start();
         if ($loginResult) {
-           session_start();
             $correo = $loginResult['correo'];
             $codigoUnico = generarCodigo();
             SendMail($correo, $codigoUnico);
@@ -42,14 +42,12 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
             $_SESSION['idCentro'] = $idcentro;
 
             header('Location: ../Views/verificacion.php');
-            exit();
-            }else {
-               
-                session_start();
-                $_SESSION['error'] = 'Usuario o contraseña incorrectos.';
+        }else {
+
+            $_SESSION['error'] = 'Usuario o contraseña incorrectos.';
                 header('Location: ../Views/login.php');
-                exit();
-        } 
+        }
+        exit();
     }
     else {
         echo
@@ -71,26 +69,26 @@ function generarCodigo()
 }
 function SendMail($correo, $codigo)
 {
-    
+
     $mail = new PHPMailer(true);
-    $mail->CharSet = 'UTF-8'; 
+    $mail->CharSet = 'UTF-8';
 
     try {
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
-        $mail->Username = 'http.diomar@gmail.com'; 
-        $mail->Password = 'vgoiwxjqlcqvrhcx'; 
-        $mail->SMTPSecure = 'tls'; 
+        $mail->Username = 'http.diomar@gmail.com';
+        $mail->Password = 'vgoiwxjqlcqvrhcx';
+        $mail->SMTPSecure = 'tls';
         $mail->Port = 587;
 
         $mail->setFrom('http.diomar@gmail.com', 'Diomar');
-        $mail->addAddress($correo); 
+        $mail->addAddress($correo);
         $dir = 'C:/xampp/htdocs/Genoma/GenomaPro/img/adn4.jpeg';
         $mail->AddEmbeddedImage($dir, 'imagen_cid', 'imagen.jpeg');
-  
-        
-        $mail->isHTML(true); 
+
+
+        $mail->isHTML(true);
         $mail->Subject = 'correo prueba';
         $body =
                 '<!DOCTYPE html>

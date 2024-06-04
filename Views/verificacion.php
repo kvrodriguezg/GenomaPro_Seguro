@@ -37,7 +37,7 @@ if (isset($_SESSION['error_verificacion']) && $_SESSION['error_verificacion'] ==
                     <form method="POST" action="../Controllers/verificacionController.php" class="form">
 
                         <img class="img-login mx-auto d-block" src="../img/1.png" alt="" width="250">
-                        <h1 style="text-align: center;">Verificacion en dos pasos</h1><br>
+                        <h1 style="text-align: center;">Verificación en dos pasos</h1><br>
 
                         <div class="pl-6 px-5">
                             <div class="input-group mb-3">

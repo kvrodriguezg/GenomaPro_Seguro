@@ -9,3 +9,4 @@ const RECEPTION = 'recepcion.php';
 const REGISTRO = 'registro.php';
 
 const DIAGNOSTICOS = 'diagnostico.php';
+

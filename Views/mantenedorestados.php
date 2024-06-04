@@ -13,7 +13,7 @@ $perfilesPermitidos = 5;
 verificarAcceso($perfilesPermitidos);
 $IDEstado = '';
 $sw = "";
-
+$objusuario=new usuario();
 /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST['IDEstado'])) {
         $IDEstado = '';

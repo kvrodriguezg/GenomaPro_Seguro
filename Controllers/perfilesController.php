@@ -18,8 +18,7 @@ if (isset($_POST['crearPerfiles'])) {
 if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['tipoPerfil'])) {
 
     $tipoPerfil = $_POST['tipoPerfil'];
-	$objPerfil->setPerfiles($tipoPerfil);
-    $insertarperfil = $objPerfil->insertarPerfil($objPerfil);
+    $insertarperfil = $objPerfil->insertarPerfil($tipoPerfil);
     echo
     '<script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -41,31 +40,6 @@ if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['tipoPerfil
         });
     </script>';
 }
-
-
-/* if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['estadoID']))
-{
-    $boton = "Enviar";
-    $id = $_POST['estadoID'];
-    if ($id>0){
-        $IDEstado= $id;
-       $IDPerfil= $obj->buscarCentroPorID($id);
-        $codigo = $centros['codigo'];
-        $nombreCentro = $centros['NombreCentro'];
-        $operacion = "Modificar";
-        $titulo = "Editar:";
-    }
-    else if ($id==0)
-    {
-        $IDCentroMedico = 0;
-        $codigo = "";
-        $nombreCentro = "";
-        $operacion = "Guardar";
-        $titulo = "Nuevo Centro Médico:";
-    }
-} */
-
-
 
 if (isset($_POST['op']) && $_POST['op'] == "eliminar" && isset($_POST['IDPerfil'])) {
     $IDPerfil = $_POST['IDPerfil'];

@@ -1,33 +1,15 @@
 <?php
+
 $directorioActual = __DIR__;
 $rutausuarios = dirname($directorioActual) . "/Controllers/usuarioscontroller.php";
 require_once $rutausuarios;
 $rutaaccesso = dirname($directorioActual) . "/Controllers/accesoController.php";
 require_once $rutaaccesso;
 
-//require_once("../Controllers/usuariosController.php");
-//require_once('../Controllers/accesoController.php');
+$objusuario=new usuario();
+$listusuarios = $objusuario->verUsuarios();
 $perfilesPermitidos = 5;
 verificarAcceso($perfilesPermitidos);
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    if (!isset($_POST['IDUsuario'])) {
-        $IDUsuario = '';
-    } else {
-        $IDUsuario = $_POST['IDUsuario'];
-    }
-    if (!isset($_POST['op'])) {
-        $op = '';
-    } else {
-        $op = $_POST['op'];
-    }
-
-    /*if ($op == 'EDITAR') {
-        header("Location: editarusuario.php?IDUsuario=$IDUsuario");
-        exit();
-    }*/
-}
-
 ?>
 
 <!DOCTYPE html>

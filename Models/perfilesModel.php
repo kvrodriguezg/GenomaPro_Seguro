@@ -32,101 +32,117 @@ class perfiles
     //esta funcion ayudara a insertar los perfiles ya definidos en cuanto se cree la tabla
     public function crearperfiles()
     {
-
-            $query = "INSERT INTO Perfiles (TipoPerfil) VALUES ('Administrador'),('Recepcionista'),('Tecnico Tincion'),('Tecnico Diagnostico'),('Tecnico Registro'),('Centro medico');";
-            $creacion = mysqli_query($this->db, $query);
-            if (!$creacion) {
-                echo "Error al crear la tabla Perfiles: " . mysqli_error($this->db);
-            }
-            return true;
-        
+        $procedure = "CALL u_users_crearPerfiles()";
+        $stmt = mysqli_prepare($this->db, $procedure);
+        if (!$stmt) {
+            die('Error al preparar la consulta: ' . mysqli_error($this->db));
+        }
+        mysqli_stmt_execute($stmt);
+        mysqli_stmt_close($stmt);
+        return true;
     }
-    
-    public function insertarPerfil(perfiles $datos)
+
+    public function insertarPerfil($datos)
     {
-            $tipoperfil = $datos->getPerfiles();
-            $query = "INSERT INTO Perfiles (TipoPerfil) VALUES (?);";
-            $query= "CALL procedure nombreprocedimiento(?)";
-            
-            if ($stmt = mysqli_prepare($this->db, $query)) {
-                mysqli_stmt_bind_param($stmt, "s", $tipoperfil);
-                if (mysqli_stmt_execute($stmt)) {
-                    return true;       
-                } 
+        $tipoperfil = $datos;
+        $procedure= "CALL u_perfil_savedate(?)";
+        if ($stmt = mysqli_prepare($this->db, $procedure)) {
+            mysqli_stmt_bind_param($stmt, "s", $tipoperfil);
+            if (mysqli_stmt_execute($stmt)) {
+                return true;
             }
-        
+        }
+        return false;
     }
-
     public function eliminarPerfil($IDPerfil){
-        $query="DELETE FROM Perfiles WHERE IDPerfil=?;";
+        $query = "CALL u_perfil_delete(?)";
         if ($stmt = mysqli_prepare($this->db, $query)) {
-            mysqli_stmt_bind_param($stmt, "s", $IDPerfil);
+            mysqli_stmt_bind_param($stmt, "i", $IDPerfil);
             if (mysqli_stmt_execute($stmt)) {
                 return true;
             } else {
                 return false;
             }
-
         }
+        return false;
     }
     public function modificarPerfil($IDPerfil, $TipoPerfil)
     {
-        $query = "UPDATE Perfiles SET TipoPerfil = ? WHERE IDPerfil = ?;"; // LA CONSULTA QUE QUIERO EJECUTAR
-        if ($stmt = mysqli_prepare($this->db, $query)) { // LE AVISO AL EDITOR QUE LE ENVIARE UNA CONSULTA PREPARADA
-            mysqli_stmt_bind_param($stmt, "si", $TipoPerfil, $IDPerfil); // LE INDICO A LA CONSULTA PREPARADA STMT 
-                                                                                //QUE DATOS NECESITO QUE VALIDE
-            if (mysqli_stmt_execute($stmt)) { //EJECUTO LA CONSULTA PREPARADA YA CON LOS DATOS QUE LE ENVIE
-                return true; //SI TODO VA BIEN, SE EJECUTA Y RETORNA TRUE
-            } else {
-                return false; // SI HAY ALGO RARO EN LA CONSULTA RETORNA FALSE
-            }
+        $procedure = "CALL u_perfil_modificarPerfil(?, ?)";
+        $stmt = mysqli_prepare($this->db, $procedure);
+        if (!$stmt) {
+            die('Error al preparar la consulta: ' . mysqli_error($this->db));
         }
-    }
-    
-    
-
-    public function verPerfiles(){
-        $consulta = mysqli_query($this->db, "select * from Perfiles");
-        while ($filas = mysqli_fetch_array($consulta)) {
-            $this->perfiles[] = $filas;
-        }
-        return $this->perfiles;
-    }
-
-    public function vertipoPerfiles(){
-        $consulta = mysqli_query($this->db, "select TipoPerfil from Perfiles");
-        while ($filas = mysqli_fetch_array($consulta)) {
-            $this->tipoperfiles[] = $filas;
-        }
-        return $this->tipoperfiles;
-    }
-
-    public function buscarPerfil($IDPerfil) {
-        $consulta = "SELECT TipoPerfil FROM perfiles WHERE IDPerfil = ?";
-        if ($stmt = mysqli_prepare($this->db, $consulta)) {
-            mysqli_stmt_bind_param($stmt, "i", $IDPerfil); 
-            if (mysqli_stmt_execute($stmt)) {
-                mysqli_stmt_bind_result($stmt, $tipoPerfil); 
-                mysqli_stmt_fetch($stmt);    
-                return $tipoPerfil;
-            } else {               
-                return false;
-            }
+        mysqli_stmt_bind_param($stmt, "is", $IDPerfil, $TipoPerfil);
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_close($stmt);
+            return true;
         } else {
+            mysqli_stmt_close($stmt);
             return false;
         }
     }
-    public function buscarPerfiles()
-    {
+
+    public function verPerfiles(){
+        if (!$this->db) {
+            die('Error al conectarse a la base de datos');
+        }
+        $procedure = "CALL u_users_bperfiles";
+        $stmt = mysqli_prepare($this->db, $procedure);
+        if (!$stmt) {
+            die('Error al preparar la consulta: ' . mysqli_error($this->db));
+        }
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+
+        if (!$result) {
+            die('Error al obtener los resultados: ' . mysqli_error($this->db));
+        }
         $perfiles = array();
-        $consulta = mysqli_query($this->db, "SELECT * FROM Perfiles");
-        
-        while ($perfil = mysqli_fetch_array($consulta)) {
+        while ($perfil = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
             $perfiles[] = $perfil;
         }
-        
+        mysqli_stmt_close($stmt);
         return $perfiles;
     }
-    
+
+    public function vertipoPerfiles()
+    {
+        $procedure = "CALL u_perfil_vertipoPerfiles()";
+        $stmt = mysqli_prepare($this->db, $procedure);
+        if (!$stmt) {
+            die('Error al preparar la consulta: ' . mysqli_error($this->db));
+        }
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if (!$result) {
+            die('Error al obtener los resultados: ' . mysqli_error($this->db));
+        }
+        $tiposPerfiles = array();
+        while ($tipoPerfil = mysqli_fetch_array($result)) {
+            $tiposPerfiles[] = $tipoPerfil['TipoPerfil'];
+        }
+        mysqli_stmt_close($stmt);
+        return $tiposPerfiles;
+    }
+
+
+    public function buscarPerfil($IDPerfil) {
+        $procedure = "CALL u_perfil_bPerfil(?)";
+        $stmt = mysqli_prepare($this->db, $procedure);
+        if (!$stmt) {
+            die('Error al preparar la consulta: ' . mysqli_error($this->db));
+        }
+        mysqli_stmt_bind_param($stmt, "i", $IDPerfil);
+        if (mysqli_stmt_execute($stmt)) {
+            mysqli_stmt_bind_result($stmt, $tipoPerfil);
+            mysqli_stmt_fetch($stmt);
+            mysqli_stmt_close($stmt);
+            return $tipoPerfil;
+        } else {
+            mysqli_stmt_close($stmt);
+            return false;
+        }
+    }
 
 }
