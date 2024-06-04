@@ -13,49 +13,65 @@ class examenesModel
 
     public function obtenerDatosExamenes()
     {
-        $query = "SELECT * FROM Examenes;";
+        $query = "CALL e_examenes_select()";
         $result = mysqli_query($this->db, $query);
+
         if ($result) {
-            return $result;
+            // Recoger los resultados en un array
+            $examenes = [];
+            while ($row = mysqli_fetch_array($result)) {
+                $examenes[] = $row;
+            }
+            // Liberar resultados después de usarlos
+            $result->close();
+            $this->db->next_result(); //Para manejar múltiples query
+            return $examenes;
+        } else {
+            echo "Error en la consulta: " . mysqli_error($this->db) . "<br>";
+            return null;
         }
     }
 
-    public function obtenerExamenesDiagnosticos()
+    public function obtenerExamenesPorEstado($estado)
     {
-        $query = "SELECT * FROM Examenes WHERE IDEstado = (SELECT IDEstado FROM Estados WHERE NombreEstado = 'Listo para Diagnostico')";
-        $result = mysqli_query($this->db, $query);
-        if ($result) {
-            return $result;
-        }
-    }
-
-    public function obtenerExamenesRegistro()
-    {
-        $query = "SELECT * FROM Examenes WHERE IDEstado = (SELECT IDEstado FROM Estados WHERE NombreEstado = 'Realizado')";
-        $result = mysqli_query($this->db, $query);
-        if ($result) {
-            return $result;
-        }
-    }
-
-    public function obtenerExamenesTincion()
-    {
-        $query = "SELECT * FROM Examenes WHERE IDEstado = (SELECT IDEstado FROM Estados WHERE NombreEstado = 'Listo para Tincion')";
-        $result = mysqli_query($this->db, $query);
-        if ($result) {
-            return $result;
+        $query = "CALL e_examenes_select_by_estado (?)";
+        if ($stmt = mysqli_prepare($this->db, $query)) {
+            mysqli_stmt_bind_param($stmt, "s", $estado);
+            if (mysqli_stmt_execute($stmt)) {
+                $resultado = mysqli_stmt_get_result($stmt);
+                $examenes = [];
+                while ($fila = mysqli_fetch_assoc($resultado)) {
+                    $examenes[] = $fila;
+                }
+                mysqli_free_result($resultado);
+                mysqli_stmt_close($stmt);
+                $this->db->next_result();
+                return $examenes;
+            } else {
+                mysqli_stmt_close($stmt);
+                return null;
+            }
         }
     }
 
     public function obtenerDomicilioPaciente($rut)
     {
-        $query = "SELECT DomicilioPaciente FROM Pacientes WHERE RutPaciente='$rut';";
-        $result = mysqli_query($this->db, $query);
-        if ($result) {
-            $row = mysqli_fetch_array($result);
-            return $row['DomicilioPaciente'];
+        $query = "CALL p_pacientes_select_domicilio_by_rut (?)";
+        if ($stmt = mysqli_prepare($this->db, $query)) {
+            mysqli_stmt_bind_param($stmt, "s", $rut);
+    
+            if (mysqli_stmt_execute($stmt)) {
+                $resultado = mysqli_stmt_get_result($stmt);
+                $fila = mysqli_fetch_assoc($resultado);
+                mysqli_free_result($resultado);
+                mysqli_stmt_close($stmt);
+                return $fila['DomicilioPaciente'];
+            } else {
+                mysqli_stmt_close($stmt);
+                return null;
+            }
         } else {
-            echo "error" . mysqli_error($this->db);
+            return null;
         }
     }
 
@@ -132,19 +148,6 @@ class examenesModel
         }
     }
 
-    public function actualizarTincion($idExamen, $idEstado)
-    {
-        $fechaTincion = date("Y-m-d H:i:s");
-        $query = "UPDATE Examenes SET IDEstado = $idEstado, Fechatincion = '$fechaTincion' WHERE IDExamen = $idExamen;";
-        $result = mysqli_query($this->db, $query);
-
-        if ($result) {
-            return true;
-        } else {
-            echo "Error: " . mysqli_error($this->db);
-            return false;
-        }
-    }
 
 
     public function obtenerListaDiagnosticos()
@@ -244,18 +247,6 @@ class examenesModel
             return "Error: " . mysqli_error($this->db);
         }
     }
-    /*public function obtenerDomicilioPaciente($rut)
-    {
-        $query = "SELECT DomicilioPaciente FROM Pacientes WHERE RutPaciente = '$rut'";
-        $result = mysqli_query($this->db, $query);
-
-        if ($result) {
-            $row = mysqli_fetch_row($result);
-            return $row[0];
-        } else {
-            return "Error: " . mysqli_error($this->db);
-        }
-    }*/
 
     public function actualizarDomicilioPaciente($rut, $nuevoDomicilio)
     {
