@@ -28,7 +28,7 @@ require_once $rutaacceso;
             <img src="./img/4.png" alt="Logo_GENOMA" class="logo">
         </div>
 
-        <button class="btn_login" role="link" onclick="window.location.href = 'Views/login.php'">
+        <button class="btn_login" role="link" onclick="window.location.href = '../SecGenomaPro/GenomaPro_Seguro/Views/login.php'">
             Inicio de Sesión
         </button>
         <?php

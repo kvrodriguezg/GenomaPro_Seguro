@@ -2,12 +2,11 @@
 session_start();
 
 if (isset($_POST['op']) && $_POST['op'] == "VERIFICAR") {
-
     $codigoIngresado = $_POST['codigo'];
     $codigoGuardado = $_SESSION['codigo_verificacion'];
 
     if ($codigoIngresado == $codigoGuardado) {
-
+        // Redireccionar según el perfil del usuario
         switch ($_SESSION['idPerfil']) {
             case 1:
                 header('Location: ../Views/diagnostico.php');
@@ -32,9 +31,9 @@ if (isset($_POST['op']) && $_POST['op'] == "VERIFICAR") {
                 break;
         }
     } else {
-        session_start();
         $_SESSION['error_verificacion'] = true;
         header('Location: ../Views/verificacion.php');
-        exit();
     }
+    exit();
 }
+?>

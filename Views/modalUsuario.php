@@ -3,6 +3,7 @@ $directorioActual = __DIR__;
 $rutausuarios = dirname($directorioActual) . "/Controllers/usuarioscontroller.php";
 require_once $rutausuarios;
 $IDUsuario = $_POST['userId'];
+$objusuario = new usuario();
 $row = $objusuario->buscarUsuarioporID($IDUsuario);
 
 $perfiles = array();
@@ -170,7 +171,6 @@ $centros = $objusuario->buscarCentros()
                                 <label for="correo">Correo:</label>
                                 <input required type="text" class="form-control" name="correo">
                             </div>
-                            git
 
                         </div>
 
