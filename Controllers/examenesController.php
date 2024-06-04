@@ -169,9 +169,5 @@ if (!empty($_POST["ingreso"])) {
 }
 
 $examenes = $examen->obtenerDatosExamenes();
-$examenesTincion = $examen->obtenerExamenesTincion();
-$examenesDiagnostico = $examen->obtenerExamenesDiagnosticos();
-$examenesRegistro = $examen->obtenerExamenesRegistro();
+$examenesDiagnostico = $examen->obtenerExamenesPorEstado('Listo para Diagnostico');
 $centrosmedicos = $examen->obtenerCentrosmedicos();
-
-$prueba;

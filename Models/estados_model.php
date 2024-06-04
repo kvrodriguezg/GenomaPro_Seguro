@@ -15,9 +15,9 @@ class Estados
 
     public function InsertaEstado($nuevoEstado, $nuevoPerfil)
     {
-        $consulta = "insert into Estados (NombreEstado, IDPerfil) values (?,?)";
+        $consulta = "CALL e_estados_insert (?, ?)";
         if ($stmt = mysqli_prepare($this->db, $consulta)) {
-            mysqli_stmt_bind_param($stmt, "ss", $nuevoEstado, $nuevoPerfil);
+            mysqli_stmt_bind_param($stmt, "si", $nuevoEstado, $nuevoPerfil);
             if (mysqli_stmt_execute($stmt)) {
                 return true;
             } else {
@@ -28,7 +28,7 @@ class Estados
 
     public function MostrarEstados()
     {
-        $consulta = mysqli_query($this->db, "select * from Estados");
+        $consulta = mysqli_query($this->db, "CALL e_estados_select");
         while ($filas = mysqli_fetch_assoc($consulta)) {
             $this->Estados[] = $filas;
         }
@@ -36,24 +36,31 @@ class Estados
     }
     public function buscarEstadoPorID($id)
     {
-        $consulta = "SELECT * FROM estados WHERE IDEstado = $id";
-        $resultado = mysqli_query($this->db, $consulta);
-        if ($resultado) {
-            $resultado2 = mysqli_fetch_assoc($resultado);
-            return $resultado2;
+        $consulta = "CALL e_estados_select_by_id (?)";
+        if ($stmt = mysqli_prepare($this->db, $consulta)) {
+            mysqli_stmt_bind_param($stmt, "i", $id);
+    
+            if (mysqli_stmt_execute($stmt)) {
+                $resultado = mysqli_stmt_get_result($stmt);
+                $fila = mysqli_fetch_assoc($resultado);
+                mysqli_free_result($resultado);
+                mysqli_stmt_close($stmt);
+                return $fila;
+            } else {
+                mysqli_stmt_close($stmt);
+                return null;
+            }
         } else {
             return null;
         }
     }
 
-
-
     public function ModificarEstado($nuevoEstado, $nuevoPerfil, $idEstados)
     {
 
-        $consulta = "update Estados set NombreEstado=?, IDPerfil=? where IDEstado=?";
+        $consulta = "CALL e_estados_update (?,?,?)";
         if ($stmt = mysqli_prepare($this->db, $consulta)) {
-            mysqli_stmt_bind_param($stmt, "ssi", $nuevoEstado, $nuevoPerfil, $idEstados);
+            mysqli_stmt_bind_param($stmt, "sii", $nuevoEstado, $nuevoPerfil, $idEstados);
             if (mysqli_stmt_execute($stmt)) {
                 return true;
             } else {
@@ -64,7 +71,7 @@ class Estados
 
     public function EliminaEstado($idEstado)
     {
-        $ordenEliminar = "DELETE FROM estados WHERE IDEstado=?;";
+        $ordenEliminar = "CALL e_estados_delete (?);";
         if ($stmt = mysqli_prepare($this->db, $ordenEliminar)) {
             mysqli_stmt_bind_param($stmt, "i", $idEstado);
             if (mysqli_stmt_execute($stmt)) {
