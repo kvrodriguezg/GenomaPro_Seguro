@@ -103,7 +103,7 @@ include("../Views/Shared/navRecepcion.php");
             </tr>
             </thead>
             <tbody>
-            <?php while ($row = mysqli_fetch_array($examenes)) { ?>
+            <?php foreach ($examenes as $row) { ?>
                 <tr class="table table-striped">
                     <form method="post" action="Registro.php">
                         <td><?php echo $row['IDExamen'] ?></td>

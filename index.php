@@ -5,7 +5,6 @@ ini_set('display_errors', 1);
 $directorioActual = __DIR__;
 $rutaacceso = $directorioActual . "/Controllers/indexController.php";
 require_once $rutaacceso;
-
 //require_once("Controllers/indexController.php");
 ?>
 <html lang="en">
@@ -29,7 +28,7 @@ require_once $rutaacceso;
             <img src="./img/4.png" alt="Logo_GENOMA" class="logo">
         </div>
 
-        <button class="btn_login" role="link" onclick="window.location.href = '../GenomaPro_Seguro/Views/login.php'">
+        <button class="btn_login" role="link" onclick="window.location.href = '../SecGenomaPro/GenomaPro_Seguro/Views/login.php'">
             Inicio de Sesión
         </button>
         <?php

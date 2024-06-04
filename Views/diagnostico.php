@@ -57,7 +57,7 @@ verificarAcceso($perfilesPermitidos);
         </tr>
         </thead>
         <tbody>
-        <?php while ($row = mysqli_fetch_array($examenesDiagnostico)) { ?>
+        <?php foreach ($examenesDiagnostico as $row) { ?>
             <tr class="table table-striped">
                 <form method="post" action="diagnostico.php">
                     <td><?php echo $row['IDExamen'] ?></td>
