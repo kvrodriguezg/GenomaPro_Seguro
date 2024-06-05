@@ -13,7 +13,7 @@ $perfilesPermitidos = 5;
 verificarAcceso($perfilesPermitidos);
 $IDEstado = '';
 $sw = "";
-$objusuario=new usuario();
+$objusuario = new usuario();
 /*if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST['IDEstado'])) {
         $IDEstado = '';
@@ -70,6 +70,15 @@ $objusuario=new usuario();
 
     <br><br><br>
     <style>
+        .dt-buttons {
+            float: left !important;
+            text-align: left !important;
+        }
+
+        .dataTables_filter {
+            float: right !important;
+            text-align: right !important;
+        }
         .table thead th {
             background-color: #023E73;
             color: white;
@@ -86,7 +95,7 @@ $objusuario=new usuario();
     <div>
         <div class="table-container">
             <div class="col-lg-11">
-                <table class="table table-responsive">
+                <table ID="pruebas4" class="table table-responsive">
                     <thead>
                         <tr>
                             <th>ID Diagn&oacute;stico</th>
@@ -134,12 +143,14 @@ $objusuario=new usuario();
                 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
                 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+                <script type="text/javascript" src="../datatables/datatables.min.js"></script>
+                <script type="text/javascript" src="../js/data3.js"></script>
             </div>
         </div>
 
         <script>
-            $(document).ready(function () {
-                $('.btn-editar-estado').click(function () {
+            $(document).ready(function() {
+                $('.btn-editar-estado').click(function() {
                     var estadoID = $(this).data('estado');
                     $.ajax({
                         type: 'POST',
@@ -147,7 +158,7 @@ $objusuario=new usuario();
                         data: {
                             estadoID: estadoID,
                         },
-                        success: function (response) {
+                        success: function(response) {
                             $('body').append(response);
                             $('#editar_Modal' + estadoID).modal('show');
                         }
@@ -156,7 +167,7 @@ $objusuario=new usuario();
             });
         </script>
         <script>
-            $('.eliminarform').submit(function (e) {
+            $('.eliminarform').submit(function(e) {
                 e.preventDefault();
 
                 Swal.fire({

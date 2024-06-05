@@ -7,6 +7,6 @@ const PERFILES = 'mantenedorPerfiles.php';
 const LOGOUT = 'cerrarsesion.php';
 const RECEPTION = 'recepcion.php';
 const REGISTRO = 'registro.php';
-
+const REPORTE = 'reporteExamenes.php';
 const DIAGNOSTICOS = 'diagnostico.php';
-
+const PACIENTES = 'mantenedorpacientes.php';

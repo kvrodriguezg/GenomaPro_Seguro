@@ -18,7 +18,8 @@ $(document).ready(function() {
         //para usar los botones   
         responsive: "true",
         dom: 'Bfrtilp',  
-		pageLength: 4,     
+        pageLength: 100, // Número de registros por página
+        lengthMenu: [10, 25, 50, 100], // Opciones de paginación
         buttons:[ 
 			{
 				extend:    'excelHtml5',

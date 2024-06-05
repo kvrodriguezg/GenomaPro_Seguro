@@ -9,7 +9,7 @@ include __DIR__ .'/../../route.php';
     <nav class="nav-ul">
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link text-blue"  href="<?= LOGOUT ?>>" style="color:#FFFFFF"> <i class="fa-solid fa-right-from-bracket" style="color: #FFFFFF;"></i> Cerrar Sesi&oacuten</a>
+                <a class="nav-link text-blue"  href="<?= LOGOUT ?>" style="color:#FFFFFF"> <i class="fa-solid fa-right-from-bracket" style="color: #FFFFFF;"></i> Cerrar Sesi&oacuten</a>
             </li>
         </ul>
     </nav>

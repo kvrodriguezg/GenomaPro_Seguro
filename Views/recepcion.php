@@ -16,7 +16,7 @@ $perfilesPermitidos = 3;
 verificarAcceso($perfilesPermitidos);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -39,7 +39,7 @@ verificarAcceso($perfilesPermitidos);
 <link rel="stylesheet" href="../css/nav.css">
 </head>
 
-<body style="background-color: #E7E7E7; font-family: 'Montserrat';">
+<body style="background-color: #E7E7E7; font-family: 'Montserrat';" class="text-center">
     <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
         <?php
         include("../Views/Shared/navRecepcion.php");
@@ -64,20 +64,31 @@ verificarAcceso($perfilesPermitidos);
         </div>
     </div>
     <style>
-       
+        .dt-buttons {
+            float: left !important;
+            text-align: left !important;
+        }
+
+        .dataTables_filter {
+            float: right !important;
+            text-align: right !important;
+        }
+
         .tabla-recepcion thead th {
             background-color: #023E73;
             color: white;
             text-decoration: none;
             font-weight: lighter;
             text-align: center;
-  
+
         }
-        .tabla-recepcion td{
+
+        .tabla-recepcion td {
             padding: 10px;
             background-color: #FFFFFF;
             text-align: center;
         }
+
         .col-clave {
             max-width: 100px;
             overflow: hidden;
@@ -114,7 +125,7 @@ verificarAcceso($perfilesPermitidos);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php 
+                    <?php
                     foreach ($examenes as $row) { ?>
                         <tr class=>
                             <form method="post" action="recepcion.php">
@@ -134,9 +145,10 @@ verificarAcceso($perfilesPermitidos);
                                         <?php
                                         $resultadoEstadosRecepcion = $examen->obtenerEstados('recepcion');
                                         if ($resultadoEstadosRecepcion) {
-                                        while ($row1 = mysqli_fetch_array($resultadoEstadosRecepcion)) {
-                                            echo '<option value="' . $row1['IDEstado'] . '">' . $row1['NombreEstado'] . '</option>';
-                                        }}
+                                            while ($row1 = mysqli_fetch_array($resultadoEstadosRecepcion)) {
+                                                echo '<option value="' . $row1['IDEstado'] . '">' . $row1['NombreEstado'] . '</option>';
+                                            }
+                                        }
                                         ?>
                                     </select>
                                 </td>
@@ -154,7 +166,7 @@ verificarAcceso($perfilesPermitidos);
                                     <!-- <a href="generar_pdf.php" class="btn w-100 m-1 btn-danger" >Ver PDF</a>  -->
                                     <input type="hidden" name="idExamen" value=<?php echo $row['IDExamen'] ?>>
                                     <button name="actualizarEstado" type="submit" style="border:none;background-color:white; height:70px; width:71px;"><i class="fa-solid fa-file-import fa-2xl" style="color: #023059;"></i></button>
-                                    <button name="eliminarRegistro" type="submit" value="Eliminar" style="border:none; background-color:white;" ><i class="fa-solid fa-2xl fa-trash" style="color:#023059;"></i></button>
+                                    <button name="eliminarRegistro" type="submit" value="Eliminar" style="border:none; background-color:white;"><i class="fa-solid fa-2xl fa-trash" style="color:#023059;"></i></button>
                                 </td>
                             </form>
                         </tr>
@@ -173,14 +185,6 @@ verificarAcceso($perfilesPermitidos);
 
 <!-- datatables JS -->
 <script type="text/javascript" src="../datatables/datatables.min.js"></script>
-
-<!-- para usar botones en datatables JS -->
-<script src="../datatables/Buttons-1.5.6/js/dataTables.buttons.min.js"></script>
-<script src="../datatables/JSZip-2.5.0/jszip.min.js"></script>
-<script src="../datatables/pdfmake-0.1.36/pdfmake.min.js"></script>
-<script src="../datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
-<script src="../datatables/Buttons-1.5.6/js/buttons.html5.min.js"></script>
-
 <!-- código JS propìo-->
 <script type="text/javascript" src="../js/data3.js"></script>
 <script>

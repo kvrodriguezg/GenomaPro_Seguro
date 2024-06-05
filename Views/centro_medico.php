@@ -1,6 +1,10 @@
 <?php
 $directorioActual = __DIR__;
-$rutacentro = dirname($directorioActual) . "/Controllers/centroController.php";
+$rutaacceso = dirname($directorioActual) . "../Controllers/accesoController.php";
+require_once $rutaacceso;
+$perfilesPermitidos = 6;
+verificarAcceso($perfilesPermitidos);
+$rutacentro = dirname($directorioActual) . "../Controllers/centroController.php";
 require_once $rutacentro;
 //require_once("../Controllers/centroController.php");
 ?>

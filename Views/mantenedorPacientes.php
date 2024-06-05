@@ -1,29 +1,13 @@
 <?php
 $directorioActual = __DIR__;
-$rutaperfiles = dirname($directorioActual) . "/Controllers/perfilesController.php";
+$rutaperfiles = dirname($directorioActual) . "/Controllers/pacientesController.php";
 require_once $rutaperfiles;
 
-$op = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Inicializar variables para evitar advertencias de 'undefined'
-    $IDPerfil = $TipoPerfil = '';
-
-    // Asignar valores si están definidos
-    $IDPerfil = isset($_POST['IDPerfil']) ? $_POST['IDPerfil'] : '';
-    $TipoPerfil = isset($_POST['TipoPerfil']) ? $_POST['TipoPerfil'] : '';
-    $op = isset($_POST['op']) ? $_POST['op'] : '';
-
-    if ($op == 'EDITAR') {
-        // Redirigir a la página de edición con parámetros
-        header("Location: editarperfil.php?IDPerfil=$IDPerfil&TipoPerfil=$TipoPerfil");
-        exit();
-    }
-}
-?>
-
-<?php require_once('../Controllers/accesoController.php');
+$rutacceso = dirname($directorioActual) . "../Controllers/accesoController.php";
+require_once($rutacceso);
 $perfilesPermitidos = 5;
 verificarAcceso($perfilesPermitidos); ?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +38,12 @@ verificarAcceso($perfilesPermitidos); ?>
         <div style="width: 80px; height: 80px; border-radius: 100%; background-color: #023E73; display: flex; justify-content: center; align-items: center; position: relative;" class="text-center">
             <div style="position: absolute; z-index: 10;">
                 <div style="position: absolute; z-index: 10;">
-                    <button type='button' style="color: #000000; position: absolute; left: 4px; top: 0;" class='btn center-block text-center btn-editar-perfil' data-bs-toggle='modal' data-perfil-id=0 data-bs-target='#editar_Modal_0'>
+                    <button type='button' style="color: #000000; position: absolute; left: 4px; top: 0;" class='btn center-block text-center btn-editar-paciente' data-bs-toggle='modal' data-paciente-id=0 data-bs-target='#editar_Modal_0'>
                         <i class="fa-solid fa-plus" style="color: #ffffff;"></i>
                     </button>
                 </div>
             </div>
-            <i class="fa-solid fa-users fa-2xl" style="color: #FFFFFF;"></i>
+            <i class="fa-solid fa-hospital-user fa-2xl" style="color: #FFFFFF;"></i>
         </div>
     </div>
     <br><br><br>
@@ -69,12 +53,10 @@ verificarAcceso($perfilesPermitidos); ?>
             float: left !important;
             text-align: left !important;
         }
-
         .dataTables_filter {
             float: right !important;
             text-align: right !important;
         }
-
         .table thead th {
             background-color: #023E73;
             color: white;
@@ -93,28 +75,30 @@ verificarAcceso($perfilesPermitidos); ?>
             <table id="pruebas4" class="table table-responsive">
                 <thead>
                     <tr>
-                        <th>ID Perfil</th>
-                        <th>Tipo Perfil</th>
+                        <th>Rut</th>
+                        <th>Nombre</th>
+                        <th>Domicilio</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody style="text-align:center; background-color: #FFFFFF">
                     <?php
-                    foreach ($listperfiles as $registro) {
+                    foreach ($listpacientes as $registro) {
                     ?>
                         <tr>
-                            <td><?php echo $registro['IDPerfil']; ?></td>
-                            <td><?php echo $registro['TipoPerfil']; ?></td>
+                            <td><?php echo $registro['RutPaciente']; ?></td>
+                            <td><?php echo $registro['NombrePaciente']; ?></td>
+                            <td><?php echo $registro['DomicilioPaciente']; ?></td>
                             <td>
-                                <button style="margin-top: 10px" type='button' style="color: #000000" class='btn center-block text-center btn-editar-perfil' data-bs-toggle='modal' data-perfil-id=<?php echo $registro['IDPerfil'] ?> data-bs-target='#editar_Modal_<?php echo $registro['IDPerfil'] ?>'>
+                                <button style="margin-top: 10px" type='button' style="color: #000000" class='btn center-block text-center btn-editar-paciente' data-bs-toggle='modal' data-paciente-id=<?php echo $registro['RutPaciente'] ?> data-bs-target='#editar_Modal_<?php echo $registro['RutPaciente'] ?>'>
                                     <i class="fa-solid fa-2xl fa-pen-to-square" style="color: #023059;"></i>
                                 </button>
                             </td>
                             <td>
                                 <form method="post" action="" class="eliminarForm">
                                     <input type="hidden" name="op" id="op" value="eliminar">
-                                    <input type="hidden" name="IDPerfil" value=<?php echo $registro['IDPerfil'] ?>>
+                                    <input type="hidden" name="RutPaciente" value=<?php echo $registro['RutPaciente'] ?>>
                                     <button style="margin-top: 10px" type="submit" class="btn"><i class="fa-solid fa-2xl fa-trash" style="color: #023059;"></i></button>
                                 </form>
                             </td>
@@ -133,17 +117,17 @@ verificarAcceso($perfilesPermitidos); ?>
             <script type="text/javascript" src="../js/data3.js"></script>
             <script>
                 $(document).ready(function() {
-                    $('.btn-editar-perfil').click(function() {
-                        var PerfilId = $(this).data('perfil-id');
+                    $('.btn-editar-paciente').click(function() {
+                        var PacienteId = $(this).data('paciente-id');
                         $.ajax({
                             type: 'POST',
-                            url: 'modalperfil.php',
+                            url: 'modalPaciente.php',
                             data: {
-                                PerfilId: PerfilId
+                                PacienteId: PacienteId
                             },
                             success: function(response) {
                                 $('body').append(response);
-                                $('#editar_Modal_' + PerfilId).modal('show'); // Abre el modal con el ID único
+                                $('#editar_Modal_' + PacienteId).modal('show'); // Abre el modal con el ID único
                             }
                         });
                     });
