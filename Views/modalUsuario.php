@@ -66,7 +66,7 @@ $centros = $objusuario->buscarCentros()
                             </div>
                             <div class="col">
                                 <label for="clave">Clave:</label>
-                                <input required type="text" class="form-control" name="clave"
+                                <input required type="password" class="form-control" name="clave"
                                        value="<?php echo $row['Clave']; ?>">
                             </div>
                         </div>
@@ -76,7 +76,7 @@ $centros = $objusuario->buscarCentros()
                         <div class="row">
                             <div class="col">
                                 <label for="correo">Correo:</label>
-                                <input required type="text" class="form-control" name="correo"
+                                <input required type="email" class="form-control" name="correo"
                                        value="<?php echo $row['Correo']; ?>">
                             </div>
 

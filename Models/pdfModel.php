@@ -18,7 +18,7 @@ class PDF
     public function ObtenerDatosPdf($IDSeleccionado)
     {
         $consulta = "select e.IDExamen, e.NombreExamen, e.RutPaciente, e.FechaTomaMuestra, 
-        e.FechaRecepcion, e.Fechatincion, e.Fechadiagnostico,  e.CodigoDiagnosticos, 
+        e.FechaRecepcion, e.Fechadiagnostico,  e.CodigoDiagnosticos, 
         d.descripcion as DescripcionDiagnostico, p.NombrePaciente as NombreDelPaciente 
         from Examenes e join Diagnosticos d on e.CodigoDiagnosticos = d.Codigo 
         join Pacientes p ON e.RutPaciente = p.RutPaciente

@@ -23,12 +23,6 @@ if (isset($_POST['actualizarEstadoDiagnostico'])) {
     header("Location: " . $_SERVER['HTTP_REFERER']);
 }
 
-if (isset($_POST['actualizarEstadoTincion'])) {
-    $idExamen = $_POST['idExamen'];
-    $idEstado = $_POST['estado'];
-    $examen->actualizarTincion($idExamen, $idEstado);
-    header("Location: " . $_SERVER['HTTP_REFERER']);
-}
 
 
 if (isset($_POST['eliminarRegistro'])) {

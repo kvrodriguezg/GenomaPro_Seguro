@@ -12,16 +12,19 @@ include __DIR__ .'/../../route.php';
                 <a class="nav-link text-blue" href="<?= USUARIOS ?>" style="color:#FFFFFF"> <i class="fa-regular fa-user" style="color: #FFFFFF;"></i> Usuarios</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-blue" href="<?= DIAGNOSTICO ?>" style="color:#FFFFFF"><i class="fa-solid fa-microscope" style="color: #FFFFFF;"></i> Diagnostico</a>
+                <a class="nav-link text-blue" href="<?= DIAGNOSTICO ?>" style="color:#FFFFFF"><i class="fa-solid fa-microscope" style="color: #FFFFFF;"></i> Diagnósticos</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-blue" href="<?= LABORATORIOS ?>" style="color:#FFFFFF"><i class="fa-regular fa-hospital" style="color: #FFFFFF;"></i>Centros Médicos</a>
+                <a class="nav-link text-blue" href="<?= LABORATORIOS ?>" style="color:#FFFFFF"><i class="fa-regular fa-hospital" style="color: #FFFFFF;"></i> Centros Médicos</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-blue" href="<?= ESTADOS ?>" style="color:#FFFFFF"><i class="fa-solid fa-bars" style="color: #FFFFFF;"></i> Estados</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-blue" href="<?= PERFILES ?>" style="color:#FFFFFF"><i class="fa-solid fa-users" style="color: #FFFFFF;"></i> Perfiles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-blue"  href="<?= PACIENTES ?>"style="color:#FFFFFF"><i class="fa-solid fa-hospital-user" style="color: #FFFFFF;"></i> Pacientes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-blue"  href="<?= REPORTE ?>"style="color:#FFFFFF"><i class="fa-regular fa-file" style="color: #FFFFFF;"></i> Reporte</a>

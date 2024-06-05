@@ -12,32 +12,57 @@ verificarAcceso($perfilesPermitidos); ?>
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-		  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-	<link rel="icon" type="image/svg+xml" href="~/favicon.ico"/>
-	<link rel="stylesheet"
-		  href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
-	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-	<link rel="stylesheet" href="../css/nav.css">
-	<title>Diagnósticos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="icon" type="image/svg+xml" href="~/favicon.ico" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/nav.css">
+    <title>Diagnósticos</title>
 </head>
 <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
     <?php
     include("../Views/Shared/nav.php");
     ?>
 </header>
+<style>
+    .table thead th {
+        background-color: #023E73;
+        color: white;
+        text-decoration: none;
+        font-weight: lighter;
+        text-align: center;
+    }
 
-<body>
-<section>
-        <h1 class='text-center' style="padding-top: 20px;">Exámenes por Centro Médico</h1><br>
-        <table id="tableUsers" class="tabla table">
+    .table tbody tr {
+        text-align: center;
+    }
+
+    .table-container {
+        display: flex;
+        justify-content: center;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+</style>
+<br><br><br><br><br>
+
+<body class="text-center" style="background-color: #E7E7E7; font-family: 'Montserrat';">
+    <div style="width:100%; display:flex; justify-content:center;">
+        <div style="width: 80px; height: 80px; border-radius: 100%; background-color: #023E73; display: flex; justify-content: center; align-items: center; position: relative;" class="text-center">
+            <i class="fa-regular fa-file fa-2xl" style="color: #FFFFFF;"></i>
+        </div>
+    </div>
+    <h1 class='text-center' style="padding-top: 20px;">Exámenes por Centro Médico</h1>
+    <div class="table-container">
+        <br>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Centro Médico</th>
-                    <?php 
+                    <?php
                     $totalFinal = 0;
                     foreach ($examenes as $examen) { ?>
                         <th><?php echo $examen; ?></th>
@@ -66,18 +91,18 @@ verificarAcceso($perfilesPermitidos); ?>
                         ?>
                             <td>
                                 <?php echo $cantidad; ?>
-                                (<?php echo round($porcentaje,2); ?>%)
+                                (<?php echo round($porcentaje, 2); ?>%)
                             </td>
                         <?php } ?>
-                        <td><?php echo $totalExamenesCentro; 
-                        $totalFinal += $totalExamenesCentro;
-                        ?></td>
+                        <td><?php echo $totalExamenesCentro;
+                            $totalFinal += $totalExamenesCentro;
+                            ?></td>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
-    </section>
-    <h2>Total Exámenes: <?php echo $totalFinal?></h2>
+    </div>
+    <h2>Total Exámenes: <?php echo $totalFinal ?></h2>
     <script src="https://kit.fontawesome.com/4652dbea50.js" crossorigin="anonymous"></script>
 </body>
 
