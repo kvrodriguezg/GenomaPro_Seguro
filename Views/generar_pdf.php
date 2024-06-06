@@ -1,9 +1,8 @@
 <?php
-
 $directorioActual = __DIR__;
-$rutaPdf = dirname($directorioActual) . "/Controllers/pdfController.php";
+$rutaPdf = dirname($directorioActual) . "../Controllers/pdfController.php";
 require_once $rutaPdf;
-$rutaexamenes = dirname($directorioActual) . "/Controllers/examenesController.php";
+$rutaexamenes = dirname($directorioActual) . "../Controllers/examenesController.php";
 require_once $rutaexamenes;
 
 $rutaTCPDF = dirname($directorioActual) . "/TCPDF-main/tcpdf.php";
@@ -95,10 +94,8 @@ $pdf->writeHTML($html, true, false, true, false, '');
 
 // Nombre del archivo PDF
 $nombreArchivo = 'informe_diagnostico' . $rutPaciente . '.pdf';
-
+ob_end_clean();
 // Salida del PDF (puedes elegir descargarlo o mostrarlo en el navegador)
-$pdf->Output($nombreArchivo, 'I',);//muestra en pantalla
+$pdf->Output($nombreArchivo, 'I');//muestra en pantalla
 //$pdf->Output($nombreArchivo, 'D');descarga automaticamente.
-
-
 ?>

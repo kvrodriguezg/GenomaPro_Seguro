@@ -97,7 +97,7 @@ include("../Views/Shared/navcentro.php");
                         </td>
                         <td style="text-align: center;">
                             <button type="button" class="btn btn-outline-danger"
-                                <?php if ($list['IDEstado'] == 4) { ?>
+                                <?php if ($list['IDEstado'] == 3) { ?>
                                     onclick="window.open('generar_pdf.php?id=<?php echo $list['IDExamen']; ?>', '_blank');">
                                 <img src="../img/pdf.png" alt="Icono PDF">
                                 <?php } else { ?>
