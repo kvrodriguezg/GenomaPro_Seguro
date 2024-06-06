@@ -91,6 +91,7 @@ if (isset($_POST['op']) && $_POST['op'] == "Modificar" && isset($_POST['IDUsuari
     $perfilM = $_POST['perfil'] ?? '';
     $centroM = $_POST['centro'] ?? '';
     $op = $_POST['op'] ?? '';
+	//incorporar aca la llamada a la funcion que limpia los datos
     $idPerfilM= $objusuario->buscarPerfil($perfilM);
     $idCentroMedicoM= $objusuario->buscarcentro($centroM);
     $insertar = $objusuario->modificarPerfil($IDUsuario, $usuario, $nombre, $correo, $rut, $clave, $idPerfilM, $idCentroMedicoM);
