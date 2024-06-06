@@ -8,9 +8,10 @@ require_once $rutaexamenes;
 $rutaTCPDF = dirname($directorioActual) . "/TCPDF-main/tcpdf.php";
 require_once $rutaTCPDF;
 
-
+date_default_timezone_set('America/Santiago');
 // Crear una instancia de TCPDF
 $pdf = new TCPDF();
+
 
 // Agregar una nueva página al PDF
 $pdf->AddPage();
@@ -29,9 +30,13 @@ $fechaRecepcionExamen = $detallePdf['FechaRecepcion'];
 $fechaDiagnostico = $detallePdf['Fechadiagnostico'];
 $Diagnostico = $detallePdf['CodigoDiagnosticos'];
 
+
+$rutPrimeros4 = substr($rutPaciente, 0, 4);
+
+// Configurar la protección del PDF 
+$pdf->SetProtection(array('print', 'copy'), $rutPrimeros4, '');
+
 // Configurar el contenido del PDF
-
-
 $html = '<table width="100%">
         <tr><br>
             <td><img src="' . $logoPath . '" width="80"></td>
@@ -96,6 +101,5 @@ $pdf->writeHTML($html, true, false, true, false, '');
 $nombreArchivo = 'informe_diagnostico' . $rutPaciente . '.pdf';
 ob_end_clean();
 // Salida del PDF (puedes elegir descargarlo o mostrarlo en el navegador)
-$pdf->Output($nombreArchivo, 'I');//muestra en pantalla
-//$pdf->Output($nombreArchivo, 'D');descarga automaticamente.
-?>
+//$pdf->Output($nombreArchivo, 'I');//muestra en pantalla
+$pdf->Output($nombreArchivo, 'D');

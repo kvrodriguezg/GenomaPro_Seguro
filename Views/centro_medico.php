@@ -63,10 +63,10 @@ include("../Views/Shared/navcentro.php");
                 <thead>
                 <tr>
                     <th>Nombre</th>
+                    <th>Nombre de Ex&aacute;men</th>
                     <th>Rut</th>
                     <th>Fecha de Toma</th>
                     <th>Fecha de orden</th>
-                    <th>Nombre de Ex&aacute;men</th>
                     <th>Estado</th>
                     <th>Ver Diagn&oacute;stico</th>
 
