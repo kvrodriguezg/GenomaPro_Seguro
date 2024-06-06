@@ -49,7 +49,7 @@ $centros = $objusuario->buscarCentros()
                             </div>
                             <div class="col">
                                 <label for="rut">Rut:</label>
-                                <input required type="text" class="form-control" name="rut" maxlength="10"
+                                <input readonly required type="text" class="form-control" name="rut" maxlength="10"
                                        oninput="agregarGuion()" value="<?php echo $row['Rut']; ?>">
 
 
