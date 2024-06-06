@@ -89,7 +89,7 @@ function SendMail($correo, $codigo)
 
 
         $mail->isHTML(true);
-        $mail->Subject = 'correo prueba';
+        $mail->Subject = 'Código de ingreso.';
         $body =
                 '<!DOCTYPE html>
             <html lang="en">
