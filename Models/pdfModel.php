@@ -36,10 +36,7 @@ class PDF
                 return false;
             }
         }
-
-
-
-
+        return false;
     }
 }
 ?>
