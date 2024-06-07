@@ -1,0 +1,39 @@
+.dt-buttons {
+    float: left !important;
+    text-align: left !important;
+}
+
+.dataTables_filter {
+    float: right !important;
+    text-align: right !important;
+}
+
+.tabla-recepcion thead th {
+    background-color: #023E73;
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+    text-align: center;
+
+}
+
+.tabla-recepcion td {
+    padding: 10px;
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.col-clave {
+    max-width: 100px;
+    overflow: hidden;
+    /* Oculta el texto que excede el ancho máximo */
+    text-overflow: ellipsis;
+    /* Agrega puntos suspensivos (...) al final del texto truncado */
+    white-space: nowrap;
+    /* Evita que el texto se divida en varias líneas */
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}

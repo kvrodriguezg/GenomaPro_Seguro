@@ -21,6 +21,7 @@ verificarAcceso($perfilesPermitidos); ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/reporte.css">
     <title>Diagnósticos</title>
 </head>
 <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
@@ -28,26 +29,7 @@ verificarAcceso($perfilesPermitidos); ?>
     include("../Views/Shared/nav.php");
     ?>
 </header>
-<style>
-    .table thead th {
-        background-color: #023E73;
-        color: white;
-        text-decoration: none;
-        font-weight: lighter;
-        text-align: center;
-    }
 
-    .table tbody tr {
-        text-align: center;
-    }
-
-    .table-container {
-        display: flex;
-        justify-content: center;
-        margin-left: 30px;
-        margin-right: 30px;
-    }
-</style>
 <br><br><br><br><br>
 
 <body class="text-center" style="background-color: #E7E7E7; font-family: 'Montserrat';">

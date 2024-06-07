@@ -1,0 +1,18 @@
+.table thead th {
+    background-color: #023E73;
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.table tbody tr {
+    text-align: center;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 30px;
+    margin-right: 30px;
+}

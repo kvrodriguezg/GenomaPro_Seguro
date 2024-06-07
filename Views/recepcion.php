@@ -38,6 +38,7 @@ verificarAcceso($perfilesPermitidos);
 <!--font awesome con CDN-->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 <link rel="stylesheet" href="../css/nav.css">
+<link rel="stylesheet" href="../css/recepcion.css">
 </head>
 
 <body style="background-color: #E7E7E7; font-family: 'Montserrat';" class="text-center">
@@ -64,47 +65,7 @@ verificarAcceso($perfilesPermitidos);
             <i class="fa-solid fa-clipboard fa-2xl" style="color: #ffffff;"></i>
         </div>
     </div>
-    <style>
-        .dt-buttons {
-            float: left !important;
-            text-align: left !important;
-        }
-
-        .dataTables_filter {
-            float: right !important;
-            text-align: right !important;
-        }
-
-        .tabla-recepcion thead th {
-            background-color: #023E73;
-            color: white;
-            text-decoration: none;
-            font-weight: lighter;
-            text-align: center;
-
-        }
-
-        .tabla-recepcion td {
-            padding: 10px;
-            background-color: #FFFFFF;
-            text-align: center;
-        }
-
-        .col-clave {
-            max-width: 100px;
-            overflow: hidden;
-            /* Oculta el texto que excede el ancho máximo */
-            text-overflow: ellipsis;
-            /* Agrega puntos suspensivos (...) al final del texto truncado */
-            white-space: nowrap;
-            /* Evita que el texto se divida en varias líneas */
-        }
-
-        .table-container {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
+   
     <div class="row" style="margin:0 10px 0 10px;">
         <div class="col-m-12">
             <table id="pruebas4" class="tabla-recepcion">
