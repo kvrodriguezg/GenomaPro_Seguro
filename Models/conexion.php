@@ -1,13 +1,22 @@
 <?php
+require_once(__DIR__ . '/../vendor/autoload.php');
+use Dotenv\Dotenv;
+
+// Cargar el archivo .env
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 
  function Conectarse()
 {
-    if (!($link = mysqli_connect("localhost", "root", ""))) {
+    $username=$_ENV['USERNAMECONEXION'];
+    $password=$_ENV['PASSWORDCONEXION'];
+    $bdd=$_ENV['BDDCONEXION'];
+    if (!($link = mysqli_connect("localhost", $username, $password))) {
         echo "ERROR 1";
         exit();
     }
 
-    $db_nombre = "bddgenomapro";
+    $db_nombre = $bdd;
 
     //Validamos si existe.
   $db_existe = mysqli_select_db($link, $db_nombre);

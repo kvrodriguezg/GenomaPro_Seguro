@@ -118,6 +118,7 @@ class examenesModel
         if ($result) {
             return $result;
         }
+        return false;
     }
 
     public function obtenerEstadoActual($idEstado)
