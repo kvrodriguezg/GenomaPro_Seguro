@@ -3,6 +3,7 @@
 require_once '../PHPMailer-master/src/PHPMailer.php';
 require_once '../PHPMailer-master/src/SMTP.php';
 require_once '../PHPMailer-master/src/Exception.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 // Ahora puedes usar PHPMailer en tu script
 use PHPMailer\PHPMailer\PHPMailer;
@@ -74,26 +75,7 @@ function generarCodigo()
 
 function SendMail($correo, $codigo)
 {
-    $mail = new PHPMailer(true);
-    $mail->CharSet = 'UTF-8';
-
-    try {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'http.diomar@gmail.com';
-        $mail->Password = 'vgoiwxjqlcqvrhcx';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
-
-        $mail->setFrom('http.diomar@gmail.com', 'Diomar');
-        $mail->addAddress($correo);
-        $dir = 'C:/xampp/htdocs/Genoma/GenomaPro/img/adn4.jpeg';
-        $mail->AddEmbeddedImage($dir, 'imagen_cid', 'imagen.jpeg');
-
-        $mail->isHTML(true);
-        $mail->Subject = 'Código de ingreso.';
-        $body = '<!DOCTYPE html>
+    $body = '<!DOCTYPE html>
                 <html lang="en">
                 <head>
                 <meta charset="UTF-8">
@@ -147,7 +129,6 @@ function SendMail($correo, $codigo)
                 <p>Has solicitado un código de verificación para acceder a tu cuenta en GenomaPro. Por favor, utiliza el siguiente código para completar el proceso de verificación:</p>
                 <div class="code">' . $codigo . '</div>
                 <p>Por favor, no compartas este código con nadie. Si no has solicitado este código, ignora este correo electrónico.</p>
-                <img src="cid:imagen_cid" alt="Imagen">
                 <p>Gracias,<br>El equipo de GenomaPro</p>
                 <div class="footer">
                     <p>&copy; 2024 GenomaPro. Todos los derechos reservados.</p>
@@ -155,20 +136,18 @@ function SendMail($correo, $codigo)
                 </div>
                 </body>
                 </html>';
-        $mail->Body = $body;
 
-        $mail->send();
-    } catch (Exception $e) {
-        echo '<script>
-                document.addEventListener("DOMContentLoaded", function() {
-                    Swal.fire({
-                        icon: "error",
-                        title: "Oops...",
-                        text: "Error al enviar el correo electrónico: ' . $mail->ErrorInfo .'.",
-                        confirmButtonColor: "#023059"
-                    });
-                });
-              </script>';
+    $resend = Resend::client('re_2UDHyywR_3ikJ1D1Wj4sy5eebPonH9hXT');
+
+    try {
+        $result = $resend->emails->send(array(
+            'from' => 'Acme <onboarding@resend.dev>',
+            'to' => array($correo),
+            'subject' => 'Codigo de verificacion',
+            'html' => $body,
+        ));
+    } catch (\Exception $e) {
+        exit('Error: ' . $e->getMessage());
     }
 }
 ?>
