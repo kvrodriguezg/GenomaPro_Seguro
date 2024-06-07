@@ -9,6 +9,7 @@
 include("../Controllers/diagnosticoController.php");
 require_once('../Controllers/accesoController.php');
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos); ?>
 
 

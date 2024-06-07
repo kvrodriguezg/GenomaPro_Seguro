@@ -13,6 +13,7 @@ if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
 $perfilesPermitidos = 3;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 ?>
 <!DOCTYPE html>

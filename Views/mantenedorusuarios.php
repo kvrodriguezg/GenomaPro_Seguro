@@ -8,7 +8,9 @@ require_once $rutaaccesso;
 
 $objusuario = new usuario();
 $listusuarios = $objusuario->verUsuarios();
+
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 ?>
 

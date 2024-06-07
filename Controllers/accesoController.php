@@ -7,4 +7,10 @@ function verificarAcceso($perfilesPermitidos) {
         exit();
     }
 }
+function verificarCodigo()
+{
+    if (!isset($_SESSION['estado-verificacion']) || $_SESSION['estado-verificacion'] !== 1) {
+        header('Location: ../index.php');
+}
+}
 ?>

@@ -68,13 +68,6 @@ if (isset($_POST['cambiarEstadodiagnostico'])) {
     exit;
 }
 
-if (isset($_POST['Filtrar'])) {
-    $fechaInicio = $_POST['fechaInicio'];
-    $fechaFin = $_POST['fechaFin'];
-
-    header("Location: descargarexcel.php?fechaInicio=$fechaInicio&fechaFin=$fechaFin");
-}
-
 
 if (!empty($_POST["ingreso"])) {
     if (!empty($_POST["nombre"]) && !empty($_POST["domicilio"]) && !empty($_POST["rut"]) && !empty($_POST["nombreexamen"]) && !empty($_POST["fechamuestra"])) {

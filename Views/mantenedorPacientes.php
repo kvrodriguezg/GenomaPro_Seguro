@@ -6,6 +6,7 @@ require_once $rutaperfiles;
 $rutacceso = dirname($directorioActual) . "../Controllers/accesoController.php";
 require_once($rutacceso);
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos); ?>
 ?>
 

@@ -13,6 +13,7 @@ echo $generaPdf;
 //require_once $generaPdf;
 
 $perfilesPermitidos = (3);
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 ?>
 <!DOCTYPE html>

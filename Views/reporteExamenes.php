@@ -5,6 +5,7 @@ $rutacceso = dirname($directorioActual) . "../Controllers/accesoController.php";
 require_once($rutacceso);
 require_once($rutareporte);
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos); ?>
 
 
