@@ -12,17 +12,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $IDPerfil = isset($_POST['IDPerfil']) ? $_POST['IDPerfil'] : '';
     $TipoPerfil = isset($_POST['TipoPerfil']) ? $_POST['TipoPerfil'] : '';
     $op = isset($_POST['op']) ? $_POST['op'] : '';
-
-    if ($op == 'EDITAR') {
-        // Redirigir a la página de edición con parámetros
-        header("Location: editarperfil.php?IDPerfil=$IDPerfil&TipoPerfil=$TipoPerfil");
-        exit();
-    }
 }
 ?>
 
 <?php require_once('../Controllers/accesoController.php');
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos); ?>
 
 <!DOCTYPE html>

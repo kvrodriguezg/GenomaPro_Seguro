@@ -8,6 +8,7 @@ require_once $rutaacceso;
 //require_once('../Controllers/accesoController.php');
 //require_once('../Controllers/centrosmedicosController.php');
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 ?>
 <!DOCTYPE html>

@@ -3,6 +3,7 @@ $directorioActual = __DIR__;
 $rutaacceso = dirname($directorioActual) . "../Controllers/accesoController.php";
 require_once $rutaacceso;
 $perfilesPermitidos = 6;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 $rutacentro = dirname($directorioActual) . "../Controllers/centroController.php";
 require_once $rutacentro;

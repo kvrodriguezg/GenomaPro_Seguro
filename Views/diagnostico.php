@@ -15,6 +15,7 @@ include "../Views/Shared/head.php";
 require_once('../Controllers/accesoController.php');
 
 $perfilesPermitidos = 1;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 ?>
 

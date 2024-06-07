@@ -10,6 +10,7 @@ $rutausuario = dirname($directorioActual) . "/Controllers/usuarioscontroller.php
 require_once $rutausuario;
 
 $perfilesPermitidos = 5;
+verificarCodigo();
 verificarAcceso($perfilesPermitidos);
 $IDEstado = '';
 $sw = "";
@@ -66,7 +67,6 @@ $objusuario = new usuario();
     </div>
 
     <!-- <h1 style="padding-top:20px; color:#000000">Usuarios</h1><br> -->
-
 
     <br><br><br>
     <style>
