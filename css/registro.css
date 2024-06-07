@@ -1,7 +1,15 @@
+.table thead th {
+    background-color: #023E73;
+    color: white;
+    text-decoration: none;
+    font-weight: lighter;
+    text-align: center;
+}
 .titulo{
     text-align: left;
     margin-left: 40px;
 }
+
 
 .alinear{
     display: flex;
@@ -66,13 +74,6 @@ input[type="date"], focus {
 .dataTables_filter {
     float: right !important;
     text-align: right !important;
-}
-
-.table thead th {
-    background-color: #023E73;
-    color: white;
-    text-decoration: none;
-    font-weight: lighter;
 }
 
 .col-clave {
