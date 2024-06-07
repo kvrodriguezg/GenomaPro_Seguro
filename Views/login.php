@@ -1,5 +1,5 @@
 <?php
-$directorioActual = __DIR__;
+
 //$ruta = dirname($directorioActual) . "/Controllers/loginController.php";
 //require_once $ruta;
 $op = "";

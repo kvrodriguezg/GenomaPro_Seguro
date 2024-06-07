@@ -3,16 +3,19 @@ $directorioActual = __DIR__;
 $ruta = dirname($directorioActual) . "/Models/conexion.php";
 require_once $ruta;
 
-class ReportesModel {
+class ReportesModel
+{
 
     private $db;
+
     public function __construct()
     {
-       // require_once("conexion.php");
+        // require_once("conexion.php");
         $this->db = Conectarse();
     }
 
-    public function obtenerNombresCentrosMedicos() {
+    public function obtenerNombresCentrosMedicos()
+    {
         $query = "SELECT NombreCentro FROM CentrosMedicos;";
         $result = mysqli_query($this->db, $query);
 
@@ -27,7 +30,8 @@ class ReportesModel {
         return $nombresCentros;
     }
 
-    public function obtenerNombresDiagnosticos() {
+    public function obtenerNombresDiagnosticos()
+    {
         $query = "SELECT descripcion FROM Diagnosticos;";
         $result = mysqli_query($this->db, $query);
 
@@ -42,7 +46,8 @@ class ReportesModel {
         return $nombresDiagnosticos;
     }
 
-    public function obtenerNombresExamenes() {
+    public function obtenerNombresExamenes()
+    {
         $query = "SELECT NombreExamen FROM Examenes;";
         $result = mysqli_query($this->db, $query);
         $nombresExamenes = [];
@@ -50,7 +55,7 @@ class ReportesModel {
         if ($result) {
             while ($row = mysqli_fetch_assoc($result)) {
                 $nombreExamen = $row['NombreExamen'];
-    
+
                 if (!in_array($nombreExamen, $nombresExamenes)) {
                     $nombresExamenes[] = $nombreExamen;
                 }
@@ -61,7 +66,8 @@ class ReportesModel {
     }
 
 
-    public function obtenerCantidadDiagnosticoPorCentro($centroMedico, $diagnostico) {
+    public function obtenerCantidadDiagnosticoPorCentro($centroMedico, $diagnostico)
+    {
         $query = "SELECT COUNT(*) as cantidad FROM Examenes 
                   WHERE IDCentroSolicitante = (SELECT IDCentroMedico FROM CentrosMedicos WHERE NombreCentro = '$centroMedico') 
                   AND CodigoDiagnosticos = (SELECT codigo FROM Diagnosticos WHERE descripcion = '$diagnostico');";
@@ -76,10 +82,11 @@ class ReportesModel {
         }
     }
 
-    public function obtenerCantidadExamenesPorCentro($centroMedico, $examen) {
+    public function obtenerCantidadExamenesPorCentro($centroMedico, $examen)
+    {
         $query = "SELECT COUNT(*) as cantidad FROM Examenes 
-        WHERE IDCentroSolicitante = (SELECT IDCentroMedico FROM CentrosMedicos WHERE NombreCentro = '$centroMedico') 
-        AND NombreExamen = '$examen';";
+    WHERE IDCentroSolicitante IN (SELECT IDCentroMedico FROM CentrosMedicos WHERE NombreCentro = '$centroMedico') 
+    AND NombreExamen = '$examen';";
 
         $result = mysqli_query($this->db, $query);
 

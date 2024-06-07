@@ -1,4 +1,11 @@
 <?php
+require '../vendor/autoload.php';
+
+use Dotenv\Dotenv;
+
+// Cargar el archivo .env
+$dotenv = Dotenv::createImmutable(dirname(__DIR__));
+$dotenv->load();
 // Incluir los archivos de PHPMailer
 require_once '../PHPMailer-master/src/PHPMailer.php';
 require_once '../PHPMailer-master/src/SMTP.php';
@@ -21,7 +28,7 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
     $clave = $_POST['clave'];
 
     // Esta clave la proporciona la API
-    $secret = "6LdH4M4pAAAAAC1gTP0FUyNeBPAACi5yrJKB6fPh";
+    $secret = $_ENV['RECAPTCHA_SECRET'];
     // Capturamos el captcha
     $response = $_POST['g-recaptcha-response'];
     $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
