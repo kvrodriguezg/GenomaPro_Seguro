@@ -38,39 +38,7 @@ verificarAcceso($perfilesPermitidos);
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/nav.css">
 </head>
-<style>
-    .dt-buttons {
-        float: left !important;
-        text-align: left !important;
-    }
 
-    .dataTables_filter {
-        float: right !important;
-        text-align: right !important;
-    }
-
-    .table thead th {
-        background-color: #023E73;
-        color: white;
-        text-decoration: none;
-        font-weight: lighter;
-    }
-
-    .col-clave {
-        max-width: 100px;
-        overflow: hidden;
-        /* Oculta el texto que excede el ancho máximo */
-        text-overflow: ellipsis;
-        /* Agrega puntos suspensivos (...) al final del texto truncado */
-        white-space: nowrap;
-        /* Evita que el texto se divida en varias líneas */
-    }
-
-    .table-container {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 <?php
 include("../Views/Shared/navRecepcion.php");
