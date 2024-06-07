@@ -5,6 +5,7 @@ $ruta = dirname($directorioActual) . "/Models/examenesModel.php";
 require_once $ruta;
 //include("../Models/examenesModel.php");
 $examen = new examenesModel();
+date_default_timezone_set('America/Santiago');
 
 if (isset($_POST['actualizarEstado'])) {
     $idExamen = $_POST['idExamen'];

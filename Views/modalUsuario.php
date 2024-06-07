@@ -95,7 +95,7 @@ $centros = $objusuario->buscarCentros()
                                         aria-label="Default select example" id="perfil" name="perfil" required>
                                     <?php
                                     foreach ($perfiles as $row1) {
-                                        $selected = ($perfilUsuario[0] == $row1['TipoPerfil']) ? 'selected' : '';
+                                        $selected = ($perfilUsuario['TipoPerfil'] == $row1['TipoPerfil']) ? 'selected' : '';
                                         echo '<option value="' . $row1['TipoPerfil'] . '" ' . $selected . '>' . $row1['TipoPerfil'] . '</option>';
                                     }
                                     ?>
@@ -108,7 +108,7 @@ $centros = $objusuario->buscarCentros()
                                         aria-label="Default select example" id="centro" name="centro" required>
                                     <?php
                                     foreach ($centros as $row2) {
-                                        $selected = ($centroUsuario[0] == $row2['NombreCentro']) ? 'selected' : '';
+                                        $selected = ($centroUsuario['NombreCentro'] == $row2['NombreCentro']) ? 'selected' : '';
                                         echo '<option value="' . $row2['NombreCentro'] . '" ' . $selected . '>' . $row2['NombreCentro'] . '</option>';
                                     }
                                     ?>
