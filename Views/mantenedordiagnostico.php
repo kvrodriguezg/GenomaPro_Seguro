@@ -24,6 +24,7 @@ verificarAcceso($perfilesPermitidos); ?>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/tablas.css">
     <title>Diagnósticos</title>
 </head>
 <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
@@ -31,31 +32,6 @@ verificarAcceso($perfilesPermitidos); ?>
     include("../Views/Shared/nav.php");
     ?>
 </header>
-
-<style>
-    .dt-buttons {
-        float: left !important;
-        text-align: left !important;
-    }
-
-    .dataTables_filter {
-        float: right !important;
-        text-align: right !important;
-    }
-
-    .table thead th {
-        background-color: #023E73;
-        color: white;
-        text-decoration: none;
-        font-weight: lighter;
-        text-align: center;
-    }
-
-    .table-container {
-        display: flex;
-        justify-content: center;
-    }
-</style>
 
 <body class="text-center" style="background-color: #E7E7E7; font-family: 'Montserrat';">
     <br><br><br><br><br>
@@ -71,20 +47,7 @@ verificarAcceso($perfilesPermitidos); ?>
     </div>
     <br><br><br>
     <div>
-        <style>
-            .table thead th {
-                background-color: #023E73;
-                color: white;
-                text-decoration: none;
-                font-weight: lighter;
-                text-align: center;
-            }
 
-            .table-container {
-                display: flex;
-                justify-content: center;
-            }
-        </style>
         <div class="table-container">
             <div class="col-lg-11">
                 <table id="pruebas4" class="table table-responsive">

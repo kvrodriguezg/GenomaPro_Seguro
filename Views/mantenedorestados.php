@@ -41,6 +41,7 @@ $objusuario = new usuario();
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/tablas.css">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <title>Document</title>
 </head>
@@ -69,29 +70,7 @@ $objusuario = new usuario();
 
 
     <br><br><br>
-    <style>
-        .dt-buttons {
-            float: left !important;
-            text-align: left !important;
-        }
 
-        .dataTables_filter {
-            float: right !important;
-            text-align: right !important;
-        }
-        .table thead th {
-            background-color: #023E73;
-            color: white;
-            text-decoration: none;
-            font-weight: lighter;
-            text-align: center;
-        }
-
-        .table-container {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
     <div>
         <div class="table-container">
             <div class="col-lg-11">

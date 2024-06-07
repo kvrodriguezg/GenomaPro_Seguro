@@ -26,6 +26,7 @@ verificarAcceso($perfilesPermitidos);
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" href="../css/nav.css">
+    <link rel="stylesheet" href="../css/tablas.css">
     <title>Document</title>
 </head>
 <?php
@@ -50,40 +51,7 @@ include("../Views/Shared/nav.php");
 
 
     <br><br><br>
-    <style>
-        .dt-buttons {
-            float: left !important;
-            text-align: left !important;
-        }
 
-        .dataTables_filter {
-            float: right !important;
-            text-align: right !important;
-        }
-
-        .table thead th {
-            background-color: #023E73;
-            color: white;
-            text-decoration: none;
-            font-weight: lighter;
-            text-align: center;
-        }
-
-        .col-clave {
-            max-width: 100px;
-            overflow: hidden;
-            /* Oculta el texto que excede el ancho máximo */
-            text-overflow: ellipsis;
-            /* Agrega puntos suspensivos (...) al final del texto truncado */
-            white-space: nowrap;
-            /* Evita que el texto se divida en varias líneas */
-        }
-
-        .table-container {
-            display: flex;
-            justify-content: center;
-        }
-    </style>
     <div>
 
         <div class="table-container">

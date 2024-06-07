@@ -8,6 +8,7 @@ class diagnosticos
 
     private $db;
     private $Codigo;
+    
     private $descripcion;
 
     private $diagnosticos;
@@ -49,7 +50,7 @@ class diagnosticos
         $query = "SELECT * FROM diagnosticos WHERE Codigo = '$codigo'";
         $resultado = mysqli_query($this->db, $query);
         if (mysqli_num_rows($resultado) != 0) {
-            echo 
+            echo
             '<script>
                 document.addEventListener("DOMContentLoaded", function() {
                         Swal.fire({
