@@ -38,6 +38,7 @@ verificarAcceso($perfilesPermitidos);
     <!--font awesome con CDN-->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/nav.css">
+	<link rel="stylesheet" href="../css/registro.css">
 </head>
 
 
@@ -61,7 +62,7 @@ include("../Views/Shared/navRecepcion.php");
 
         <div class="col-lg-11">
             <table id="pruebas4" class="table table-responsive">
-                <thead style="background-color: #FFFFFF">
+                <thead style="background-color: #023E73">
                     <tr>
                         <th>#</th>
                         <th>Nombre Paciente</th>
