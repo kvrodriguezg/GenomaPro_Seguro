@@ -1,16 +1,13 @@
 <?php
-require '../vendor/autoload.php';
-
+require_once(__DIR__ . '/../vendor/autoload.php');
 use Dotenv\Dotenv;
-
 // Cargar el archivo .env
 $dotenv = Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
 // Incluir los archivos de PHPMailer
-require_once '../PHPMailer-master/src/PHPMailer.php';
-require_once '../PHPMailer-master/src/SMTP.php';
-require_once '../PHPMailer-master/src/Exception.php';
-require __DIR__ . '/../vendor/autoload.php';
+require_once ('../PHPMailer-master/src/PHPMailer.php');
+require_once ('../PHPMailer-master/src/SMTP.php');
+require_once ('../PHPMailer-master/src/Exception.php');
 
 // Ahora puedes usar PHPMailer en tu script
 use PHPMailer\PHPMailer\PHPMailer;
@@ -35,7 +32,7 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
     $captcha_response = json_decode($verify);
 
     if ($captcha_response->success) {
-        $loginResult = $objlogin->iniciarSesion($usuario, $clave);
+        $loginResult = $objlogin->accessStart($usuario, $clave);
 
         session_start();
         if ($loginResult) {
@@ -43,7 +40,8 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
             $correo = $loginResult['correo'];
             $codigoUnico = generarCodigo();
             $_SESSION['codigo_verificacion'] = $codigoUnico;
-            SendMail($correo, $codigoUnico);
+            //SendMail($correo, $codigoUnico);
+            $objlogin->insertarcodigo($codigoUnico);
             $idperfil = $loginResult['idPerfil'];
             $idcentro = $loginResult['IDCentroMedico'];
             $userId = $loginResult['idUsuario'];
@@ -86,6 +84,7 @@ function SendMail($correo, $codigo)
     $mail->CharSet = 'UTF-8';
 
     try {
+        $mail->SMTPDebug = SMTP::DEBUG_OFF;
         $mail->isSMTP();
         $mail->Host = 'smtp.gmail.com';
         $mail->SMTPAuth = true;
@@ -96,9 +95,6 @@ function SendMail($correo, $codigo)
 
         $mail->setFrom('http.diomar@gmail.com', 'Diomar');
         $mail->addAddress($correo);
-        $dir = 'C:/xampp/htdocs/Genoma/GenomaPro/img/adn4.jpeg';
-        $mail->AddEmbeddedImage($dir, 'imagen_cid', 'imagen.jpeg');
-
         $mail->isHTML(true);
         $mail->Subject = 'Código de ingreso.';
         $body = '<!DOCTYPE html>
@@ -155,7 +151,6 @@ function SendMail($correo, $codigo)
                     <p>Has solicitado un código de verificación para acceder a tu cuenta en GenomaPro. Por favor, utiliza el siguiente código para completar el proceso de verificación:</p>
                     <div class="code">' . $codigo . '</div>
                     <p>Por favor, no compartas este código con nadie. Si no has solicitado este código, ignora este correo electrónico.</p>
-                    <img src="cid:imagen_cid" alt="Imagen">
                     <p>Gracias,<br>El equipo de GenomaPro</p>
                     <div class="footer">
                         <p>&copy; 2024 GenomaPro. Todos los derechos reservados.</p>

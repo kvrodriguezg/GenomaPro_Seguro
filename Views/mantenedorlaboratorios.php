@@ -31,7 +31,7 @@ verificarAcceso($perfilesPermitidos);
 
 <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
     <?php
-    include("../Views/Shared/nav.php");
+    include_once("../Views/Shared/nav.php");
     ?>
 </header>
 <br><br><br><br><br>

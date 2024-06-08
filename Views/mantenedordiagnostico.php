@@ -6,7 +6,7 @@
 //$rutaacceso = dirname($directorioActual) . "/Controllers/accesoController.php";
 //require_once $rutaacceso;
 
-include("../Controllers/diagnosticoController.php");
+include_once("../Controllers/diagnosticoController.php");
 require_once('../Controllers/accesoController.php');
 $perfilesPermitidos = 5;
 verificarCodigo();
@@ -30,7 +30,7 @@ verificarAcceso($perfilesPermitidos); ?>
 </head>
 <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
     <?php
-    include("../Views/Shared/nav.php");
+    include_once("../Views/Shared/nav.php");
     ?>
 </header>
 

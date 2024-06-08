@@ -37,7 +37,7 @@ require_once $rutacentro;
 
 <
 <?php
-include("../Views/Shared/navcentro.php");
+include_once("../Views/Shared/navcentro.php");
 ?>
 
 <div style="width:100%; display:flex; justify-content:center; margin-top:80px;">

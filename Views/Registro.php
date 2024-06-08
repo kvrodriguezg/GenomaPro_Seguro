@@ -43,7 +43,7 @@ verificarAcceso($perfilesPermitidos);
 
 
 <?php
-include("../Views/Shared/navRecepcion.php");
+include_once("../Views/Shared/navRecepcion.php");
 ?>
 
 

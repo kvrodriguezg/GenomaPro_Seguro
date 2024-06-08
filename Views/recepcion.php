@@ -44,7 +44,7 @@ verificarAcceso($perfilesPermitidos);
 <body style="background-color: #E7E7E7; font-family: 'Montserrat';" class="text-center">
     <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
         <?php
-        include("../Views/Shared/navRecepcion.php");
+        include_once("../Views/Shared/navRecepcion.php");
         ?>
     </header>
     <br><br><br><br><br>

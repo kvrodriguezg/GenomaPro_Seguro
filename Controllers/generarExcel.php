@@ -4,7 +4,7 @@ header("Content-Disposition: attachment; filename = registro.xls");
 //$directorioActual = __DIR__;
 //$usuarioModel = dirname($directorioActual) . "/Models/centromedicoModel.php";
 //require_once $usuarioModel;
-include("../Models/centromedicoModel.php");
+include_once("../Models/centromedicoModel.php");
 
 $obj=new centromedico();
 

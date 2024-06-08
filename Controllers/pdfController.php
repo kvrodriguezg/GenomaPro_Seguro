@@ -2,7 +2,7 @@
 //$directorioActual = __DIR__;
 //$pdf = dirname($directorioActual) . "/Models/pdfModel.php";
 //require_once $pdf;
-include("../Models/pdfModel.php");
+include_once("../Models/pdfModel.php");
 
 $objetoPdf = new PDF();
 
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 
     if ($detallePdf !== false) {
         if ($detallePdf !== null) {
-            include('generar_pdf.php');
+            include_once('generar_pdf.php');
         } else {
 
             echo "No se encontraron datos para el IDExamen especificado.";
