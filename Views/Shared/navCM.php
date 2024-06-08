@@ -1,5 +1,5 @@
 <?php
-include __DIR__ .'/../../route.php';
+include_once(__DIR__ .'/../../route.php');
 ?>
 <div class="nav-container">
         <a class="navbar-brand" href="../index.php">

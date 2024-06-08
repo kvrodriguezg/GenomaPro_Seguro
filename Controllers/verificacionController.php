@@ -1,4 +1,9 @@
 <?php
+$directorioActual = __DIR__;
+$rutausuario = dirname($directorioActual) . "/Models/usuarioModel.php";
+require_once $rutausuario;
+
+$objlogin = new usuario();
 session_start();
 
 if (!isset($_SESSION['codigo_verificacion']) || empty($_SESSION['codigo_verificacion'])) {
@@ -14,6 +19,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['op']) && $_POST['op'] 
             $codigoGuardado = $_SESSION['codigo_verificacion'];
             if ($codigoIngresado == $codigoGuardado) {
                 $_SESSION['estado-verificacion']=1;
+
+                $objlogin->eliminarCodigo($codigoGuardado);
                 // Redireccionar según el perfil del usuario
                 switch ($_SESSION['idPerfil']) {
                     case 1:

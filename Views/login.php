@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div class="card-body">
                     <form method="POST" action="login.php" class="form" onsubmit="return validarFormulario()">
 
-                        <img class="img-login mx-auto d-block" src="../img/1.png" alt="" width="250">
+                        <img class="img-login mx-auto d-block" src="../img/1.png" alt="imgen" width="250">
                         <h1 style="text-align: center;">Iniciar Sesión</h1><br>
                         <?php
                         if (!empty($error)) {
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="pl-6 px-5">
                             <div class="input-group mb-3">
                                     <span class="input-group-text">
-                                        <img src="../img/user2.png" width="20" height="20">
+                                        <img src="../img/user2.png"  alt="imagen" width="20" height="20">
                                     </span>
                                 <input type="text" class="form-control" name="usuario" placeholder="Ingrese su usuario">
                             </div>

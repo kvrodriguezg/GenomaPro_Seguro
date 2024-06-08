@@ -1,5 +1,5 @@
 <?php
-include __DIR__ .'/../../route.php';
+include_once(__DIR__ .'/../../route.php');
 ?>
 <header class="navbar navbar-light fixed-top" style="background-color: #023059;">
     <div class="nav-container">

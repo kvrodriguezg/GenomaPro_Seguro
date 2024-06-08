@@ -11,7 +11,7 @@
 //$rutahead = $directorioActual . "/Shared/head.php";
 //require_once $rutahead;
 require_once("../Controllers/examenesController.php");
-include "../Views/Shared/head.php";
+include_once ("../Views/Shared/head.php");
 require_once('../Controllers/accesoController.php');
 
 $perfilesPermitidos = 1;
@@ -21,7 +21,7 @@ verificarAcceso($perfilesPermitidos);
 
 <link rel="stylesheet" href="../css/prueba.css">
 <link rel="stylesheet" href="../css/nav.css">
-<?php include "../Views/Shared/navDiagnostico.php" ?>
+<?php include_once("../Views/Shared/navDiagnostico.php") ?>
 
 <body style="background-color: #E7E7E7; font-family: 'Montserrat';" class="text-center">
     <style>
@@ -141,7 +141,7 @@ verificarAcceso($perfilesPermitidos);
             </tbody>
         </table>
     </section>
-    <?php include "../views/Shared/scripts.php" ?>
+    <?php include_once ("../views/Shared/scripts.php") ?>
     <script src="https://kit.fontawesome.com/4652dbea50.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

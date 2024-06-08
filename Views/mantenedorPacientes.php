@@ -30,7 +30,7 @@ verificarAcceso($perfilesPermitidos); ?>
 
 <header class="navbar navbar-light fixed-top" style="background-color: #FFFFFF;">
     <?php
-    include("../Views/Shared/nav.php");
+    include_once("../Views/Shared/nav.php");
     ?>
 </header>
 <br><br><br><br><br>
@@ -65,6 +65,7 @@ verificarAcceso($perfilesPermitidos); ?>
             </thead>
             <tbody style="text-align:center; background-color: #FFFFFF">
             <?php
+            if (!empty($listpacientes)) {
             foreach ($listpacientes as $registro) {
                 ?>
                 <tr>
@@ -85,7 +86,7 @@ verificarAcceso($perfilesPermitidos); ?>
                     </td>
                 </tr>
                 <?php
-            }
+            }}
             ?>
             </tbody>
         </table>

@@ -112,6 +112,25 @@ class usuario
         $this->centrosarray = array();
     }
 
+    public function verCentrosarray()
+    {
+        $procedure = "CALL u_users_centrosarray()";
+        $stmt = mysqli_prepare($this->db, $procedure);
+        if (!$stmt) {
+            die('Error al preparar la consulta: ' . mysqli_error($this->db));
+        }
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        if (!$result) {
+            die('Error al obtener los resultados: ' . mysqli_error($this->db));
+        }
+        $centrosArray = array();
+        while ($centro = mysqli_fetch_array($result)) {
+            $centrosArray[] = $centro['NombreCentro'];
+        }
+        mysqli_stmt_close($stmt);
+        return $centrosArray;
+    }
     public function verUsuarios()
     {
         $this->md = Conectarse();
@@ -122,6 +141,8 @@ class usuario
         }
         return $this->usuario;
     }
+
+
     public function buscarPerfil($nombrePerfil)
     {
         $procedure = "CALL u_users_bperfil(?)";
@@ -145,7 +166,6 @@ class usuario
             return null; // O manejar el caso de que no se encuentre ningún perfil con ese nombre
         }
     }
-
 
     public function buscarPerfiles()
     {
@@ -194,6 +214,8 @@ class usuario
         return $centros;
     }
 
+
+
     public function buscarcentro($nombreCentro)
     {
         $procedure = "CALL u_users_bcentro(?)";
@@ -216,32 +238,70 @@ class usuario
             return null; // O manejar el caso de que no se encuentre ningún centro médico con ese nombre
         }
     }
-
-
-
-    public function verCentrosarray()
+    public function insertarcodigo($codigo)
     {
-        $procedure = "CALL u_users_centrosarray()";
-        $stmt = mysqli_prepare($this->db, $procedure);
-        if (!$stmt) {
-            die('Error al preparar la consulta: ' . mysqli_error($this->db));
+        // Generar una clave única para el cifrado
+        $claveCifrado = random_bytes(32); // Longitud de la clave, 32 bytes para AES-256
+        $iv = random_bytes(16); // IV para AES-256-CBC, 16 bytes
+
+        // Cifrar el código usando AES-256-CBC
+        $codigoCifrado = openssl_encrypt($codigo, 'aes-256-cbc', $claveCifrado, 0, $iv);
+
+        // Generar un hash del código original
+        $hashCodigo = hash('sha256', $codigo, true);
+
+        // Consulta SQL para insertar el código cifrado, la clave y el hash en la base de datos
+        $sql = "INSERT INTO codigos (codigo, clave_cifrado, iv, hash_codigo) VALUES (?, ?, ?, ?)";
+
+        // Preparar la consulta
+        if ($stmt = mysqli_prepare($this->db, $sql)) {
+            // Enlazar parámetros
+            mysqli_stmt_bind_param($stmt, "ssss", $codigoCifrado, $claveCifrado, $iv, $hashCodigo);
+
+            // Ejecutar la consulta
+            if (mysqli_stmt_execute($stmt)) {
+                // La inserción fue exitosa
+                mysqli_stmt_close($stmt); // Cerrar el statement
+                return true;
+            } else {
+                // Error al ejecutar la consulta
+                mysqli_stmt_close($stmt); // Cerrar el statement
+                return false;
+            }
+        } else {
+            // Error al preparar la consulta
+            return false;
         }
-        mysqli_stmt_execute($stmt);
-        $result = mysqli_stmt_get_result($stmt);
-        if (!$result) {
-            die('Error al obtener los resultados: ' . mysqli_error($this->db));
-        }
-        $centrosArray = array();
-        while ($centro = mysqli_fetch_array($result)) {
-            $centrosArray[] = $centro['NombreCentro'];
-        }
-        mysqli_stmt_close($stmt);
-        return $centrosArray;
     }
+
+
+
+
+    public function eliminarCodigo($codigo)
+    {
+        $hashCodigo = hash('sha256', $codigo, true);
+
+        $sql = "DELETE FROM codigos WHERE hash_codigo = ?";
+
+        if ($stmt = mysqli_prepare($this->db, $sql)) {
+            mysqli_stmt_bind_param($stmt, "s", $hashCodigo);
+
+            if (mysqli_stmt_execute($stmt)) {
+                mysqli_stmt_close($stmt);
+                return true;
+            } else {
+                mysqli_stmt_close($stmt);
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
+
+
 
     public function insertarUsuario($usuario, $nombre, $correo, $rut, $clave, $perfil, $centro)
     {
-
         $clavehash = password_hash($clave, PASSWORD_DEFAULT);
 
         // Verificar si ya existe un usuario con la misma llave foránea
@@ -370,7 +430,7 @@ class usuario
     }
 
 
-    function iniciarSesion($usuario, $clave)
+    function accessStart($usuario, $clave)
     {
         $procedure = "CALL u_users_iniciarSesion(?)";
         $stmt = mysqli_prepare($this->db, $procedure);

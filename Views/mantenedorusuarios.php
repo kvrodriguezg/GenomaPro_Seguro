@@ -32,7 +32,7 @@ verificarAcceso($perfilesPermitidos);
     <title>Document</title>
 </head>
 <?php
-include("../Views/Shared/nav.php");
+include_once("../Views/Shared/nav.php");
 ?>
 <br><br><br><br><br>
 
