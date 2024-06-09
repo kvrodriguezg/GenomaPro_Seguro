@@ -41,12 +41,12 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
             $codigoUnico = generarCodigo();
             $_SESSION['codigo_verificacion'] = $codigoUnico;
             //SendMail($correo, $codigoUnico);
-            $objlogin->insertarcodigo($codigoUnico);
+            
             $idperfil = $loginResult['idPerfil'];
             $idcentro = $loginResult['IDCentroMedico'];
             $userId = $loginResult['idUsuario'];
             $username = $loginResult['username'];
-
+            $objlogin->insertarcodigo($codigoUnico, $userId);
             // Almacenar valores en la sesión
             $_SESSION['idPerfil'] = $idperfil;
             $_SESSION['idCentro'] = $idcentro;
