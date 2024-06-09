@@ -6,7 +6,7 @@ CREATE PROCEDURE u_users_iniciarSesion(
 )
 BEGIN
     -- Obtener los datos del usuario
-    SELECT usuario, Clave, Correo, idPerfil, IDCentroMedico
+    SELECT IDUsuario, usuario, Clave, Correo, idPerfil, IDCentroMedico
     FROM Usuarios
     WHERE usuario = p_usuario;
 END //

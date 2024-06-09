@@ -238,7 +238,7 @@ class usuario
             return null; // O manejar el caso de que no se encuentre ningún centro médico con ese nombre
         }
     }
-    public function insertarcodigo($codigo)
+    public function insertarcodigo($codigo, $userId)
     {
         // Generar una clave única para el cifrado
         $claveCifrado = random_bytes(32); // Longitud de la clave, 32 bytes para AES-256
@@ -251,12 +251,12 @@ class usuario
         $hashCodigo = hash('sha256', $codigo, true);
 
         // Consulta SQL para insertar el código cifrado, la clave y el hash en la base de datos
-        $sql = "INSERT INTO codigos (codigo, clave_cifrado, iv, hash_codigo) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO codigos (codigo, clave_cifrado, iv, hash_codigo, id_usuario) VALUES (?, ?, ?, ?, ?)";
 
         // Preparar la consulta
         if ($stmt = mysqli_prepare($this->db, $sql)) {
             // Enlazar parámetros
-            mysqli_stmt_bind_param($stmt, "ssss", $codigoCifrado, $claveCifrado, $iv, $hashCodigo);
+            mysqli_stmt_bind_param($stmt, "ssssi", $codigoCifrado, $claveCifrado, $iv, $hashCodigo, $userId);
 
             // Ejecutar la consulta
             if (mysqli_stmt_execute($stmt)) {
@@ -439,11 +439,11 @@ class usuario
         }
         mysqli_stmt_bind_param($stmt, "s", $usuario);
         mysqli_stmt_execute($stmt);
-        mysqli_stmt_bind_result($stmt, $resultadoUsuario, $resultadoClave, $correo, $idPerfil, $IDCentroMedico);
+        mysqli_stmt_bind_result($stmt, $idUsuario, $resultadoUsuario, $resultadoClave, $correo, $idPerfil, $IDCentroMedico);
         mysqli_stmt_fetch($stmt);
         mysqli_stmt_close($stmt);
         if ($resultadoUsuario === $usuario && password_verify($clave, $resultadoClave)) {
-            return array('idPerfil' => $idPerfil, 'IDCentroMedico' => $IDCentroMedico, 'correo' => $correo);
+            return array('idUsuario' => $idUsuario, 'idPerfil' => $idPerfil, 'IDCentroMedico' => $IDCentroMedico, 'correo' => $correo);
         } else {
             return false;
         }
