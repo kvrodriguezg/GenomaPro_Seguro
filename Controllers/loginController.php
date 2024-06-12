@@ -21,17 +21,34 @@ require_once $rutausuario;
 $objlogin = new usuario();
 
 if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
-    $usuario = $_POST['usuario'];
-    $clave = $_POST['clave'];
-
-    // Esta clave la proporciona la API
+    if (isset($_POST['usuario']) && isset($_POST['clave']) && isset($_POST['g-recaptcha-response'])) {
+        $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_SPECIAL_CHARS);
+        $clave = filter_input(INPUT_POST, 'clave', FILTER_SANITIZE_SPECIAL_CHARS);
     $secret = $_ENV['RECAPTCHA_SECRET'];
-    // Capturamos el captcha
     $response = $_POST['g-recaptcha-response'];
-    $verify = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}");
-    $captcha_response = json_decode($verify);
+    $url="https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}";
+    $url = filter_var($url, FILTER_SANITIZE_URL);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Deshabilitar la verificación SSL temporalmente (solo para pruebas)
+    $response = curl_exec($ch);
+    if($response=== false){
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Ha ocurrido un error, intenta mas tarde",
+                confirmButtonColor: "#023059"
+            });
+        });
+      </script>';
+      exit();
+    }
+    $captcha_response = json_decode($response);
 
-    if ($captcha_response->success) {
+    if (isset($captcha_response->success) && $captcha_response->success === true) {
         $loginResult = $objlogin->accessStart($usuario, $clave);
 
         session_start();
@@ -71,8 +88,22 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
                 });
               </script>';
     }
+    curl_close($ch);
+}
+else{
+    echo '<script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Oops...",
+                        text: "Ha ocurrido un error, intenta mas tarde",
+                        confirmButtonColor: "#023059"
+                    });
+                });
+              </script>';
 }
 
+}
 function generarCodigo()
 {
     return uniqid();
