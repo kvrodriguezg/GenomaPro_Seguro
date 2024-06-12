@@ -1,11 +1,11 @@
 <?php
+
 $directorioActual = __DIR__;
 $rutausuarios = dirname($directorioActual) . "/Controllers/usuarioscontroller.php";
 require_once $rutausuarios;
 $IDUsuario = $_POST['userId'];
 $objusuario = new usuario();
 $row = $objusuario->buscarUsuarioporID($IDUsuario);
-
 $perfiles = array();
 $centros = array();
 $perfiles = $objusuario->buscarPerfiles();
@@ -139,6 +139,7 @@ $centros = $objusuario->buscarCentros()
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form method="POST" action="mantenedorusuarios.php">
+					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                     <div class="modal-body">
                         <div class="row">
                             <div class="col">
