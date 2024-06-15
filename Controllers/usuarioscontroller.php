@@ -35,6 +35,21 @@ if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['nombre']) 
         $perfil = $sanitizedData['perfil'] ?? '';
         $centro = $sanitizedData['centro'] ?? '';
         $op = $_POST['op'] ?? '';
+		$error = validateData($sanitizedData);
+
+    if (!validateData($sanitizedData)) {
+        echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Revise los datos ingresados",
+                confirmButtonColor: "#023059"
+            });
+        });
+      </script>';
+	}
+	else {
         $idPerfil = $objusuario->buscarPerfil($perfil);
         $idCentroMedico = $objusuario->buscarcentro($centro);
         $estado = $objusuario->validarut($rut);
@@ -89,6 +104,7 @@ if (isset($_POST['op']) && $_POST['op'] == "GUARDAR" && isset($_POST['nombre']) 
         });
     </script>';
         }
+    }
 }
 
 
@@ -147,13 +163,25 @@ if (isset($_POST['op']) && $_POST['op'] == "Modificar" && isset($_POST['IDUsuari
     $centroM = $sanitizedData['centro'] ?? '';
 
     $op = $_POST['op'] ?? '';
-    $idPerfilM = $objusuario->buscarPerfil($perfilM);
-    $idCentroMedicoM = $objusuario->buscarcentro($centroM);
-
-    $insertar = $objusuario->modificarPerfil($IDUsuario, $usuario, $nombre, $correo, $rut, $clave, $idPerfilM, $idCentroMedicoM);
-
-    if ($insertar) {
+    if (!validateData($sanitizedData)) {
         echo '<script>
+        document.addEventListener("DOMContentLoaded", function() {
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Revise los datos ingresados",
+                confirmButtonColor: "#023059"
+            });
+        });
+      </script>';
+    } else {
+        $idPerfilM = $objusuario->buscarPerfil($perfilM);
+        $idCentroMedicoM = $objusuario->buscarcentro($centroM);
+
+        $insertar = $objusuario->modificarPerfil($IDUsuario, $usuario, $nombre, $correo, $rut, $clave, $idPerfilM, $idCentroMedicoM);
+
+        if ($insertar) {
+            echo '<script>
                 document.addEventListener("DOMContentLoaded", function() {
                     Swal.fire({
                         icon: "success",
@@ -162,8 +190,8 @@ if (isset($_POST['op']) && $_POST['op'] == "Modificar" && isset($_POST['IDUsuari
                     });
                 });
             </script>';
-    } else {
-        echo '<script>
+        } else {
+            echo '<script>
                 document.addEventListener("DOMContentLoaded", function() {
                     Swal.fire({
                         icon: "error",
@@ -173,8 +201,8 @@ if (isset($_POST['op']) && $_POST['op'] == "Modificar" && isset($_POST['IDUsuari
                     });
                 });
             </script>';
+        }
     }
 }
-
 
 $listusuarios = $objusuario->verUsuarios();

@@ -31,13 +31,13 @@
 .table-container {
     display: flex;
     justify-content: center;
+    overflow: auto;
 }
 .center-button {
     text-align: center;
 }
 .tabla {
     width: 100%;
-    overflow: auto;
 }
 .col-clave {
     max-width: 100px;

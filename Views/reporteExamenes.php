@@ -33,7 +33,7 @@ verificarAcceso($perfilesPermitidos); ?>
 <br><br><br><br><br>
 
 <body class="text-center" style="background-color: #E7E7E7; font-family: 'Montserrat';">
-    <div style="width:100%; display:flex; justify-content:center;">
+    <div style="width:100%; display:flex; justify-content:center;  margin-top: 50px;"">
         <div style="width: 80px; height: 80px; border-radius: 100%; background-color: #023E73; display: flex; justify-content: center; align-items: center; position: relative;" class="text-center">
             <i class="fa-regular fa-file fa-2xl" style="color: #FFFFFF;"></i>
         </div>
