@@ -37,7 +37,7 @@ verificarAcceso($perfilesPermitidos);
 <br><br><br><br><br>
 
 <body class="text-center" style="background-color: #E7E7E7; font-family: 'Montserrat';">
-    <div style="width:100%; display:flex; justify-content:center;">
+    <div style="width:100%; display:flex; justify-content:center;  margin-top: 50px;"">
         <div style="width: 80px; height: 80px; border-radius: 100%; background-color: #023E73; display: flex; justify-content: center; align-items: center; position: relative;" class="text-center">
             <div style="position: absolute; z-index: 10;">
                 <button type='button' style="color: #000000; position: absolute; left: 4px; top: 0;" class="btn center-block  btn-editar-centro" data-bs-toggle="modal" data-id=0 bs-target="#editar_Modal_0">

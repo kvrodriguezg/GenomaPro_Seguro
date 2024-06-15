@@ -8,7 +8,6 @@ $dotenv->load();
 require_once ('../PHPMailer-master/src/PHPMailer.php');
 require_once ('../PHPMailer-master/src/SMTP.php');
 require_once ('../PHPMailer-master/src/Exception.php');
-
 // Ahora puedes usar PHPMailer en tu script
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
@@ -24,14 +23,14 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
     if (isset($_POST['usuario']) && isset($_POST['clave']) && isset($_POST['g-recaptcha-response'])) {
         $usuario = filter_input(INPUT_POST, 'usuario', FILTER_SANITIZE_SPECIAL_CHARS);
         $clave = filter_input(INPUT_POST, 'clave', FILTER_SANITIZE_SPECIAL_CHARS);
-    $secret = $_ENV['RECAPTCHA_SECRET'];
-    $response = $_POST['g-recaptcha-response'];
-    $url="https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}";
-    $url = filter_var($url, FILTER_SANITIZE_URL);
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $url);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Deshabilitar la verificación SSL temporalmente (solo para pruebas)
+        $secret = $_ENV['RECAPTCHA_SECRET'];
+        $response = $_POST['g-recaptcha-response'];
+        $url="https://www.google.com/recaptcha/api/siteverify?secret={$secret}&response={$response}";
+        $url = filter_var($url, FILTER_SANITIZE_URL);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Deshabilitar la verificación SSL temporalmente (solo para pruebas)
     $response = curl_exec($ch);
     if($response=== false){
         echo '<script>
@@ -50,7 +49,6 @@ if (isset($_POST['op']) && $_POST['op'] == "LOGIN") {
 
     if (isset($captcha_response->success) && $captcha_response->success === true) {
         $loginResult = $objlogin->accessStart($usuario, $clave);
-
         session_start();
         if ($loginResult) {
             $_SESSION['estado-verificacion']=0;

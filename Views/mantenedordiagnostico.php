@@ -36,7 +36,7 @@ verificarAcceso($perfilesPermitidos); ?>
 
 <body class="text-center" style="background-color: #E7E7E7; font-family: 'Montserrat';">
     <br><br><br><br><br>
-    <div style="width:100%; display:flex; justify-content:center;">
+    <div style="width:100%; display:flex; justify-content:center;  margin-top: 50px;"">
         <div style="width: 80px; height: 80px; border-radius: 100%; background-color: #023E73; display: flex; justify-content: center; align-items: center; position: relative;" class="text-center">
             <div style="position: absolute; z-index: 10;">
                 <button type='button' style="color: #000000; position: absolute; left: 4px; top: 0;" class='btn center-block text-center btn-editar-diagnostico' data-bs-toggle='modal' data-cod-diag=0 data-bs-target='#editar_Modal_0'>

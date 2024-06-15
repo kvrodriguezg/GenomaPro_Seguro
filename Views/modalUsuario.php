@@ -11,7 +11,7 @@ $centros = array();
 $perfiles = $objusuario->buscarPerfiles();
 $centros = $objusuario->buscarCentros()
 ?>
-    <script>
+	<script xmlns="">
         function agregarGuion() {
             var rutInput = document.getElementById('rut');
             var valorRut = rutInput.value.replace(/[^\dKk]/g, '');
@@ -138,7 +138,7 @@ $centros = $objusuario->buscarCentros()
                     <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario:</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form method="POST" action="mantenedorusuarios.php">
+                <form method="POST" action="mantenedorusuarios.php" onsubmit="return validateForm()" >
 					<input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
                     <div class="modal-body">
                         <div class="row">
@@ -215,5 +215,5 @@ $centros = $objusuario->buscarCentros()
             </div>
         </div>
     </div>
-
+    <script src="../js/validate.js"></script>
 <?php } ?>
